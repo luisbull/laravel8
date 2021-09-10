@@ -39,6 +39,10 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <h1>Contact Page</h1>
+                    <!-- 3 different ways to link pages - using route is best profesional way -->
+                    <a href="{{ url('/') }}">Home</a> |
+                    <a href="{{ URL::to('/about')}}">About</a> |
+                    <a href="{{ route('conX')}}">Contact</a> | 
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">

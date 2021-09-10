@@ -25,12 +25,13 @@ Route::get('/home', function () {
 
 Route::get('/about', function (){
     return view('about');
-})->middleware('age');
+// })->middleware('age');
+});
 
 
 // For Laravel 6 7 //
 // Route::get('/contact', 'ContactController@index');
 // END For Laravel 6 7 //
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact-PAPA-RAPA', [ContactController::class, 'index'])->name('conX');
 

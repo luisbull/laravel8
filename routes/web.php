@@ -35,3 +35,7 @@ Route::get('/about', function (){
 
 Route::get('/contact-PAPA-RAPA', [ContactController::class, 'index'])->name('conX');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

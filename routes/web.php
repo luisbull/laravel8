@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 
-use App\Models\User;
+// use App\Models\User; //use for Eloquent
+
+use Illuminate\Support\Facades\DB; // use for Query Builder
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,8 @@ Route::get('/contact-PAPA-RAPA', [ContactController::class, 'index'])->name('con
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
-    $users = User::all();
+    // $users = User::all(); // using Eloquent
+    $users = DB::table('users')->get(); // using Query Builder
 
     return view('dashboard', compact('users'));
 })->name('dashboard');

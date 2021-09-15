@@ -35,7 +35,8 @@
                     <th scope="row">{{ $i ++}}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at->diffForHumans() }}</td>
+                    <!-- <td> $user->created_at->diffForHumans() </td> using Eloquent - put inside double curly brackets all content inside <td></td>  -->
+                    <td>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</td> <!-- using Query builder-->
                     </tr>
                     @endforeach
                 </tbody>

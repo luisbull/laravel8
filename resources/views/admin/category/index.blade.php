@@ -29,13 +29,14 @@
                           </tr>
                       </thead>
                       <tbody>
-                        <!-- @php($i = 1) -->
+                        <!-- @php($i = 1) If using pagination this won't work perfectly -->
                         @foreach($categories as $category)
                         <tr>
-                          <!-- <th>{{ $i++ }}</th> -->
+                          <!-- <th>{{ $i++ }}</th> If using pagination this won't work perfectly - It would start from 1 again when changing page -->
                           <th>{{ $categories->firstItem()+$loop->index }}</th> <!-- Prevent pagination to start again from 1 when click next page -->
                           <td>{{ $category->category_name }}</td>
-                          <td>{{ $category->user_id }}</td>
+                          <!-- <td>{{ $category->user_id }}</td> read commment from line below -->
+                          <td>{{ $category->user->name }}</td> <!-- using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
                           <td>
                             @if($category->created_at == NULL)
                             <span class="text-danger">No Date Set</span>

@@ -39,7 +39,8 @@
                             @if($category->created_at == NULL)
                             <span class="text-danger">No Date Set</span>
                             @else
-                            {{ $category->created_at->diffForHumans() }}</td>
+                            <!-- $category->created_at->diffForHumans() </td>  using Eloquent - put inside double curly brackets all content inside <td></td> -->
+                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}</td> <!-- using Query Builder -->
                             @endif
                         </tr>
                         @endforeach

@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function AllCat(){
-        // $categories = Category::latest()->get(); // using Eloquent
-        $categories = DB::table('categories')->latest()->get(); // using Query Builder
+        $categories = Category::latest()->paginate(5); // using Eloquent
+        // $categories = DB::table('categories')->latest()->paginate(5); // using Query Builder
         return view('admin.category.index', compact('categories'));
     }
 

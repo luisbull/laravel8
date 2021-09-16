@@ -29,10 +29,11 @@
                           </tr>
                       </thead>
                       <tbody>
-                        @php($i = 1)
+                        <!-- @php($i = 1) -->
                         @foreach($categories as $category)
                         <tr>
-                          <th>{{ $i++ }}</th>
+                          <!-- <th>{{ $i++ }}</th> -->
+                          <th>{{ $categories->firstItem()+$loop->index }}</th> <!-- Prevent pagination to start again from 1 when click next page -->
                           <td>{{ $category->category_name }}</td>
                           <td>{{ $category->user_id }}</td>
                           <td>
@@ -46,6 +47,7 @@
                         @endforeach
                       </tbody>
                   </table>
+                  {{ $categories->links()}}
                 </div>
               </div>
               <div class="col-md-4">

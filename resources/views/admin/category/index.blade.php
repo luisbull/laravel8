@@ -23,13 +23,26 @@
                       <thead>
                           <tr>
                           <th scope="col">#</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Email</th>
+                          <th scope="col">Cagtegory Name</th>
+                          <th scope="col">User</th>
                           <th scope="col">Created at</th>
                           </tr>
                       </thead>
                       <tbody>
-      
+                        @php($i = 1)
+                        @foreach($categories as $category)
+                        <tr>
+                          <th>{{ $i++ }}</th>
+                          <td>{{ $category->category_name }}</td>
+                          <td>{{ $category->user_id }}</td>
+                          <td>
+                            @if($category->created_at == NULL)
+                            <span class="text-danger">No Date Set</span>
+                            @else
+                            {{ $category->created_at->diffForHumans() }}</td>
+                            @endif
+                        </tr>
+                        @endforeach
                       </tbody>
                   </table>
                 </div>

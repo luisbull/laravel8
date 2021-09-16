@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function AllCat(){
-        return view('admin.category.index');
+        $categories = Category::latest()->get();
+
+        return view('admin.category.index', compact('categories'));
     }
-    
+
     public function AddCat(Request $request){
         $validated = $request->validate(
             ['category_name' => 'required|unique:categories|max:255',],
@@ -25,11 +27,11 @@ class CategoryController extends Controller
 
         // USING ELOQUENT //
         // // ONE way to add category //
-        // Category::insert([
-            //     'category_name' => $request->category_name,
-            //     'user_id' => Auth::user()->id,
-            //     'created_at' => Carbon::now()
-            // ]);
+        Category::insert([
+                'category_name' => $request->category_name,
+                'user_id' => Auth::user()->id,
+                'created_at' => Carbon::now()
+            ]);
         // // END ONE way to add category //
 
         // $category = new Category;
@@ -39,11 +41,11 @@ class CategoryController extends Controller
         // END USING ELOQUENT //
 
         // // USING QUERY BUILDER //
-        $data = array();
-        $data['category_name'] = $request->category_name;
-        $data['user_id'] = Auth::user()->id;
-        $data['created_at'] = Carbon::now();
-        DB::table('categories')->insert($data);
+        // $data = array();
+        // $data['category_name'] = $request->category_name;
+        // $data['user_id'] = Auth::user()->id;
+        // $data['created_at'] = Carbon::now();
+        // DB::table('categories')->insert($data);
         // // END USING QUERY BUILDER //
 
         return redirect()->back()->with('success', 'Category Inserted Successfully');

@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-
+use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use Illuminate\Support\Facades\DB; // use for Query Builder
@@ -38,6 +39,14 @@ Route::get('/about', function (){
 // END For Laravel 6 7 //
 
 Route::get('/contact-PAPA-RAPA', [ContactController::class, 'index'])->name('conX');
+
+// Category controller //
+Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
+
+Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store.category');
+// END Category controller //
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

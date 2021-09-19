@@ -15,8 +15,8 @@ class Category extends Model
         'category_name',
     ];
 
-    // relating two tables (Categories and User) to use User-name instead of User-id 
-    public function user(){
-        return $this->hasOne(User::class, 'id', 'user_id');
-    }
+    // using Aloquent - relating two tables (Categories and User) to use User-name instead of User-id 
+    // public function user(){
+    //     return $this->hasOne(User::class, 'id', 'user_id');
+    // }
 }

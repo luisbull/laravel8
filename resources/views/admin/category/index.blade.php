@@ -36,7 +36,8 @@
                           <th>{{ $categories->firstItem()+$loop->index }}</th> <!-- Prevent pagination to start again from 1 when click next page -->
                           <td>{{ $category->category_name }}</td>
                           <!-- <td>{{ $category->user_id }}</td> read commment from line below -->
-                          <td>{{ $category->user->name }}</td> <!-- using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
+                          <!--<td> $category->user->name </td>  using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
+                          <td>{{ $category->name }}</td> <!-- using Query Builder-->
                           <td>
                             @if($category->created_at == NULL)
                             <span class="text-danger">No Date Set</span>

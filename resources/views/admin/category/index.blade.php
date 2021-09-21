@@ -26,6 +26,7 @@
                           <th scope="col">Cagtegory Name</th>
                           <th scope="col">User</th>
                           <th scope="col">Created at</th>
+                          <th scope="col">Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -36,15 +37,20 @@
                           <th>{{ $categories->firstItem()+$loop->index }}</th> <!-- Prevent pagination to start again from 1 when click next page -->
                           <td>{{ $category->category_name }}</td>
                           <!-- <td>{{ $category->user_id }}</td> read commment from line below -->
-                          <!--<td> $category->user->name </td>  using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
-                          <td>{{ $category->name }}</td> <!-- using Query Builder-->
+                          <td> {{$category->user->name}} </td> <!-- using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
+                          <!--<td>$category->name</td>  using Query Builder-->
                           <td>
                             @if($category->created_at == NULL)
                             <span class="text-danger">No Date Set</span>
                             @else
                             <!-- $category->created_at->diffForHumans() </td>  using Eloquent - put inside double curly brackets all content inside <td></td> -->
-                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}</td> <!-- using Query Builder -->
+                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
                             @endif
+                          </td> <!-- using Query Builder -->
+                          <td>
+                            <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
+                            <a href="" class="btn btn-danger">Delete</a>
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>

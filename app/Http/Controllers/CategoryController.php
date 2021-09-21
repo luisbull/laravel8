@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function AllCat(){
-        // $categories = Category::latest()->paginate(5); // using Eloquent
+        $categories = Category::latest()->paginate(5); // using Eloquent
         
         // using Query Builder
-        $categories = DB::table('categories')
-                        ->join('users', 'categories.user_id', 'users.id')
-                        ->select('categories.*', 'users.name')
-                        ->latest()->paginate(5); 
+        // $categories = DB::table('categories')
+        //                 ->join('users', 'categories.user_id', 'users.id')
+        //                 ->select('categories.*', 'users.name')
+        //                 ->latest()->paginate(5); 
         // END using Query Builder
         
         return view('admin.category.index', compact('categories'));
@@ -58,4 +58,20 @@ class CategoryController extends Controller
         return redirect()->back()->with('success', 'Category Inserted Successfully');
 
     }
+
+    public function Edit($id){
+        $categories = Category::find($id);
+        return view('admin.category.edit', compact('categories'));
+    }
+
+    public function Update(Request $request, $id){
+        $update = Category::find($id)->update([
+            'category_name' => $request->category_name,
+            'user_id' => Auth::user()->id
+        ]);
+
+        return redirect()->route('all.category')->with('success', 'Category Updated Successfully');
+
+    }
+
 }

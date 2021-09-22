@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Models\Category;
 use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
@@ -47,6 +48,9 @@ Route::post('/category/add', [CategoryController::class, 'AddCat'])->name('store
 
 Route::get('/category/edit/{id}', [CategoryController::class, 'Edit']);
 Route::post('/category/update/{id}', [CategoryController::class, 'Update']);
+Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete']);
+Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
+Route::get('/pdelete/category/{id}', [CategoryController::class, 'PermanentDelete']);
 // END Category controller //
 
 

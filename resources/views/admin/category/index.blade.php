@@ -49,7 +49,7 @@
                           </td> <!-- using Query Builder -->
                           <td>
                             <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="{{ url('softdelete/category/'.$category->id) }}" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach
@@ -83,5 +83,62 @@
                 
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+
+                  <div class="card-header">Trash List</div>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Cagtegory Name</th>
+                          <th scope="col">User</th>
+                          <th scope="col">Created at</th>
+                          <th scope="col">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <!-- @php($i = 1) If using pagination this won't work perfectly -->
+                        @foreach($trashCat as $category)
+                        <tr>
+                          <!-- <th>{{ $i++ }}</th> If using pagination this won't work perfectly - It would start from 1 again when changing page -->
+                          <th>{{ $categories->firstItem()+$loop->index }}</th> <!-- Prevent pagination to start again from 1 when click next page -->
+                          <td>{{ $category->category_name }}</td>
+                          <!-- <td>{{ $category->user_id }}</td> read commment from line below -->
+                          <td> {{$category->user->name}} </td> <!-- using Eloquent - using the table relation created in Model/Category.php to use UserName instead UserID -->
+                          <!--<td>$category->name</td>  using Query Builder-->
+                          <td>
+                            @if($category->created_at == NULL)
+                            <span class="text-danger">No Date Set</span>
+                            @else
+                            <!-- $category->created_at->diffForHumans() </td>  using Eloquent - put inside double curly brackets all content inside <td></td> -->
+                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                            @endif
+                          </td> <!-- using Query Builder -->
+                          <td>
+                            <a href="{{ url('category/restore/'.$category->id) }}" class="btn btn-info">Restore</a>
+                            <a href="{{ url('pdelete/category/'.$category->id) }}" class="btn btn-danger">P Delete</a>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                  </table>
+                  {{ $trashCat->links()}}
+                </div>
+              </div>
+
+              <div class="col-md-4">
+              </div>
+              
+
+                
+            </div>
+        </div>
+
+
+
     </div>
 </x-app-layout>

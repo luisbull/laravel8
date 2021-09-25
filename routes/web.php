@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
+use App\Http\Controllers\BrandController;
+
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
 /*
@@ -52,6 +54,11 @@ Route::get('/softdelete/category/{id}', [CategoryController::class, 'SoftDelete'
 Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
 Route::get('/pdelete/category/{id}', [CategoryController::class, 'PermanentDelete']);
 // END Category controller //
+
+// Brand controller //
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
+// END Brand controller //
 
 
 

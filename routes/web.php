@@ -8,7 +8,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use App\Http\Controllers\BrandController;
-
+use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
 /*
@@ -58,6 +58,8 @@ Route::get('/pdelete/category/{id}', [CategoryController::class, 'PermanentDelet
 // Brand controller //
 Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
+Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 // END Brand controller //
 
 

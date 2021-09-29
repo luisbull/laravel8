@@ -10,19 +10,18 @@ use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller
 {
+    /////////////////////
+    // READ (load ALL) //
+    /////////////////////
     public function AllBrand(){
         $brands = Brand::latest()->paginate(5); // using Eloquent
-        
-        // using Query Builder
-        // $brands = DB::table('brands')
-        //                 ->join('users', 'brands.user_id', 'users.id')
-        //                 ->select('brands.*', 'users.name')
-        //                 ->latest()->paginate(5); 
-        // END using Query Builder
         
         return view('admin.brand.index', compact('brands'));
     }
 
+    ////////////
+    // CREATE //
+    ////////////
     public function StoreBrand(Request $request){
         $validated = $request->validate(
             [
@@ -36,11 +35,12 @@ class BrandController extends Controller
         );
 
         $brand_image = $request->file('brand_image');
+        // $up_loacation = 'image/brand';  
         $up_loacation = 'image/brand';  
 
         Brand::insert([
-            'brand_name' => $request->brand_name,
-            'brand_image' => $brand_image->store($up_loacation, 'public'),
+            'brand_name' => $request->brand_name.$brand_image->extension(),
+            'brand_image' => $brand_image->store($up_loacation, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
             // store('uploads', 'public')
             'created_at' => Carbon::now()
         ]);
@@ -48,39 +48,71 @@ class BrandController extends Controller
         return redirect()->back()->with('success', 'Brand Inserted Successfully');
     }
 
+
+    //////////
+    // EDIT //
+    //////////
     public function Edit($id){
         $brands = Brand::find($id);
         return view('admin/brand/edit', compact('brands')); 
     }
 
+
+    ////////////
+    // UPDATE //
+    ////////////
     public function Update(Request $request, $id){
         $validated = $request->validate(
-            [
-                'brand_name' => 'required|min:4',
-                // 'brand_image' => 'required|mimes:jpg,jpeg,bmp,png,svg|max:1048',
-            ],
-            [
-                'brand_name.required' => 'Please enter brand name', // here can be customised text instead of default message
-                //  'brand_name.min' => 'Min 20' // here can be customised text instead of default message
-            ], 
-        );
+                    [
+                        'brand_name' => 'required|min:4',
+                        // 'brand_image' => 'required|mimes:jpg,jpeg,bmp,png,svg|max:1048',
+                    ],
+                    [
+                        'brand_name.required' => 'Please enter brand name', // here can be customised text instead of default message
+                        //  'brand_name.min' => 'Min 20' // here can be customised text instead of default message
+                    ], 
+                );
 
-        $old_image = $request->brand_image;
-        // 'storage/'.$brands->brand_image
-        // Brand::find($id)->unlink($request->brand_name);
-        File::delete($old_image);
-        
+
         $brand_image = $request->file('brand_image');
         $up_loacation = 'image/brand';
-        // $imagePath = public_path('storage/'.$post->image);
-        // unlink($old_image);
-        Brand::find($id)->update([
-            'brand_name' => $request->brand_name,
-            'brand_image' => $brand_image->store($up_loacation, 'public'),
-            // store('uploads', 'public')
-            'created_at' => Carbon::now()
-        ]);
 
-        return redirect()->back()->with('success', 'Brand Inserted Successfully');
+        $brand_entry = Brand::find($id);
+        $old_image = public_path('storage/'.$brand_entry->brand_image);
+        
+        if($brand_image){
+            if(File::exists($old_image)){
+                File::delete($old_image);
+                // dd('Si existe'); 
+                Brand::find($id)->update([
+                    'brand_name' => $request->brand_name,
+                    'brand_image' => $brand_image->store($up_loacation, 'public'),
+                    // store('uploads', 'public')
+                    'updated_at' => Carbon::now()
+                ]);
+    
+                return redirect()->back()->with('success', 'Brand Updated Successfully');    
+            }else{
+                Brand::find($id)->update([
+                    'brand_name' => $request->brand_name,
+                    'brand_image' => $brand_image->store($up_loacation, 'public'),
+                    // store('uploads', 'public')
+                    'updated_at' => Carbon::now()
+                ]);
+
+                return redirect()->back()->with('success', 'Brand Updated Successfully');
+            }
+        }else{
+            Brand::find($id)->update([
+                'brand_name' => $request->brand_name,
+                // 'brand_image' => $brand_image->store($up_loacation, 'public'),
+                // store('uploads', 'public')
+                // 'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+            return redirect()->back()->with('success', 'Brand Updated Successfully');
+        }
+
     }
 }

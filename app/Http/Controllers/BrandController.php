@@ -7,6 +7,7 @@ use Carbon\Carbon;
 // use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class BrandController extends Controller
 {
@@ -35,13 +36,16 @@ class BrandController extends Controller
         );
 
         $brand_image = $request->file('brand_image');
-        // $up_loacation = 'image/brand';  
-        $up_loacation = 'image/brand';  
+        $up_location = 'image/brand';  
+
+        // keep ratio height and width
+        Image::make($brand_image)->resize(null, 200, function($constraint) {
+            $constraint->aspectRatio();
+        })->save();
 
         Brand::insert([
-            'brand_name' => $request->brand_name.$brand_image->extension(),
-            'brand_image' => $brand_image->store($up_loacation, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
-            // store('uploads', 'public')
+            'brand_name' => $request->brand_name.'.'.$brand_image->extension(),
+            'brand_image' => $brand_image->store($up_location, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
             'created_at' => Carbon::now()
         ]);
 
@@ -75,7 +79,7 @@ class BrandController extends Controller
 
 
         $brand_image = $request->file('brand_image');
-        $up_loacation = 'image/brand';
+        $up_location = 'image/brand';
 
         $brand_entry = Brand::find($id);
         $old_image = public_path('storage/'.$brand_entry->brand_image);
@@ -86,7 +90,7 @@ class BrandController extends Controller
                 // dd('Si existe'); 
                 Brand::find($id)->update([
                     'brand_name' => $request->brand_name,
-                    'brand_image' => $brand_image->store($up_loacation, 'public'),
+                    'brand_image' => $brand_image->store($up_location, 'public'),
                     // store('uploads', 'public')
                     'updated_at' => Carbon::now()
                 ]);
@@ -95,7 +99,7 @@ class BrandController extends Controller
             }else{
                 Brand::find($id)->update([
                     'brand_name' => $request->brand_name,
-                    'brand_image' => $brand_image->store($up_loacation, 'public'),
+                    'brand_image' => $brand_image->store($up_location, 'public'),
                     // store('uploads', 'public')
                     'updated_at' => Carbon::now()
                 ]);

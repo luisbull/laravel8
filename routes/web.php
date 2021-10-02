@@ -8,6 +8,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\MultiImageController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
@@ -62,6 +63,11 @@ Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 // END Brand controller //
+
+// MultiImage controller //
+Route::get('/multiImage/all', [MultiImageController::class, 'AllImages'])->name('all.multiImage');
+Route::post('/multiImage/store', [MultiImageController::class, 'StoreImages'])->name('store.images');
+// END MultiImage controller //
 
 
 

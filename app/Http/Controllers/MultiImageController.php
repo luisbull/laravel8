@@ -10,6 +10,11 @@ use Intervention\Image\Facades\Image;
 
 class MultiImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function AllImages(){
         $allImages = MultiPic::all();
         return view('admin.pics.index', compact('allImages'));

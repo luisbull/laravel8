@@ -79,7 +79,8 @@ Route::post('/multiImage/store', [MultiImageController::class, 'StoreImages'])->
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
     // $users = User::all(); // using Eloquent
-    $users = DB::table('users')->get(); // using Query Builder
+    // $users = DB::table('users')->get(); // using Query Builder
 
-    return view('dashboard', compact('users'));
+    // return view('dashboard', compact('users'));
+    return view('admin.index');
 })->name('dashboard');

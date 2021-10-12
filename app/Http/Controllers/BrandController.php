@@ -6,6 +6,7 @@ use App\Models\Brand;
 use Carbon\Carbon;
 // use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use phpDocumentor\Reflection\Types\This;
@@ -136,5 +137,11 @@ class BrandController extends Controller
         Brand::find($id)->delete();
 
         return redirect()->back()->with('success', 'Brande Deleted Successfully');
+    }
+
+    public function Logout(){
+        Auth::logout();
+
+        return Redirect()->route('login')->with('success', 'User Logout Successfully');
     }
 }

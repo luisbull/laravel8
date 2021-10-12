@@ -9,6 +9,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MultiImageController;
+use App\Http\Controllers\UserController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
@@ -84,3 +85,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // return view('dashboard', compact('users'));
     return view('admin.index');
 })->name('dashboard');
+
+// User LOGOUT //
+Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout');
+// Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+// END User LOGOUT //

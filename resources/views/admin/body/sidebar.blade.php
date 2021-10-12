@@ -329,7 +329,7 @@
             </div>
 
             <hr class="separator" />
-
+            <!-- Note: I hided this div as the instructor deleted in the course. It may be used in future -->
             <!-- <div class="sidebar-footer">
               <div class="sidebar-footer-content">
                 <h6 class="text-uppercase">

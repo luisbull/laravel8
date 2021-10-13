@@ -62,20 +62,25 @@
                 </div>
                 <div class="card-body p-5">
                   <h4 class="text-dark mb-5">Sign Up</h4>
+                  <x-jet-validation-errors class="mb-4" />
                   <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="row">
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name" name="name" :value="old('name')" required autofocus autocomplete="name">
+                        <!-- <input type="text" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name" name="name" :value="old('name')" required autofocus autocomplete="name"> -->
+                        <x-jet-input id="name" class="form-control input-lg" type="text" name="name" :value="old('name')" placeholder="Name" required autofocus autocomplete="name" />
                       </div>
                       <div class="form-group col-md-12 mb-4" for="email" value="{{ __('Email') }}">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email" name="email" :value="old('email')" required>
+                        <!-- <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Email" name="email" :value="old('email')" required> -->
+                        <x-jet-input id="email" class="form-control input-lg" type="email" name="email" :value="old('email')" placeholder="Email" required />
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required autocomplete="new-password">
+                        <!-- <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required autocomplete="new-password"> -->
+                        <x-jet-input id="password" class="form-control input-lg" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" class="form-control input-lg" id="cpassword" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                        <!-- <input type="password" class="form-control input-lg" id="cpassword" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password"> -->
+                        <x-jet-input id="password_confirmation" class="form-control input-lg" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
                       </div>
                       <div class="col-md-12">
                         <div class="d-inline-block mr-3">
@@ -86,7 +91,7 @@
                           </label>
                     
                         </div>
-                        <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">{{ __('Register') }}</button>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">{{ __('Sign up') }}</button>
                         <p>Already have an account?
                           <a class="text-blue" href="{{ route('login') }}">Sign in</a>
                         </p>

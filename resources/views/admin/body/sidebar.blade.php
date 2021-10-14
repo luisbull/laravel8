@@ -25,18 +25,39 @@
             </div>
             <!-- begin sidebar scrollbar -->
             <div class="sidebar-scrollbar">
-
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
+                  
                   <li  class="has-sub active expand" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">Dashboard</span> <b class="caret"></b>
+                      <span class="nav-text">Home</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse show"  id="dashboard"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">  
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="index.html">
+                                <span class="nav-text">Slider</span>                                
+                              </a>
+                            </li>
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="index.html">
+                                <span class="nav-text">Home About</span>                                
+                              </a>
+                            </li>
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="index.html">
+                                <span class="nav-text">Home Portfolio</span>                                
+                              </a>
+                            </li>
+                            <li  class="active" >
+                              <a class="sidenav-item-link" href="{{ route('all.brand') }}">
+                                <span class="nav-text">Home Brand</span>                                
+                              </a>
+                            </li>
+
                             <li  class="active" >
                               <a class="sidenav-item-link" href="index.html">
                                 <span class="nav-text">Ecommerce</span>                                
@@ -274,23 +295,10 @@
                           </a>
                           <ul  class="collapse"  id="headers">
                             <div class="sub-menu">
-                              
-                              <li >
-                                <a href="header-fixed.html">Header Fixed</a>
-                              </li>
-                              
-                              <li >
-                                <a href="header-static.html">Header Static</a>
-                              </li>
-                              
-                              <li >
-                                <a href="header-light.html">Header Light</a>
-                              </li>
-                              
-                              <li >
-                                <a href="header-dark.html">Header Dark</a>
-                              </li>
-                              
+                              <li ><a href="header-fixed.html">Header Fixed</a></li>
+                              <li ><a href="header-static.html">Header Static</a></li>
+                              <li ><a href="header-light.html">Header Light</a></li>
+                              <li ><a href="header-dark.html">Header Dark</a></li>
                             </div>
                           </ul>
                         </li>

@@ -40,6 +40,7 @@ class BrandController extends Controller
             [
                 'brand_name.required' => 'Please enter brand name', // here can be customised text instead of default message
                 //  'brand_name.min' => 'Min 20' // here can be customised text instead of default message
+                //  'brand_image.mimes' => 'Only jpg,jpeg,bmp,png,svg accepted' // here can be customised text instead of default message
             ], 
         );
 

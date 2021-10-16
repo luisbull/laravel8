@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
               
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="card">
 
                   <div class="card-header">Edit Slider</div>
@@ -51,7 +51,10 @@
                         <img src="{{ asset('storage/'.$sliders->image) }}" alt="" srcset="">
                         
                       </div>
-                      <button type="submit" class="btn btn-primary">Update Slider</button>
+                      <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Update Slider</button>
+                        <a href="{{ route('home.slider') }}" class="btn btn-secondary btn-default">Cancel</a>
+                      </div>
                     </form>
                   </div>
                   

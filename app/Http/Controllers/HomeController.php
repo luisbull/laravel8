@@ -85,9 +85,9 @@ class HomeController extends Controller
                 // 'slider_image' => 'required|mimes:jpg,jpeg,bmp,png,svg|max:1048',
             ],
             [
-                'slider_title.required' => 'HOLAPlease enter slider title', // here can be customised text instead of default message
+                'slider_title.required' => 'Please enter slider title', // here can be customised text instead of default message
                 //  'title.min' => 'Min 20' // here can be customised text instead of default message
-                'slider_description.requires' => 'necesitas las descripcion'
+                // 'slider_description.required' => 'necesitas las descripcion'
                 //  'image.mimes' => 'Only jpg,jpeg,bmp,png,svg accepted' // here can be customised text instead of default message
             ], 
         );

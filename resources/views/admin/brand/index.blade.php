@@ -64,25 +64,25 @@
                   <div class="card-header">Add Brand</div>
                   <div class="card-body">
                     
-                  <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
-                      @csrf
-                      <div class="mb-3">
-                        <label for="brandName" class="form-label">Brand name</label>
-                        <input type="text" name="brand_name" class="form-control" id="brandName" aria-describedby="BrandName">
-                        @error('brand_name')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
+                    <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                          <label for="brandName" class="form-label">Brand name</label>
+                          <input type="text" name="brand_name" class="form-control" id="brandName" aria-describedby="BrandName">
+                          @error('brand_name')
+                          <span class="text-danger">{{ $message }}</span>
+                          @enderror
+                        </div>
 
-                      <div class="mb-3">
-                        <label for="brandImage" class="form-label">Brand image</label>
-                        <input type="file" name="brand_image" class="form-control" id="brandImage" aria-describedby="BrandImage">
-                        @error('brand_image')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
+                        <div class="mb-3">
+                          <label for="brandImage" class="form-label">Brand image</label>
+                          <input type="file" name="brand_image" class="form-control" id="brandImage" aria-describedby="BrandImage">
+                          @error('brand_image')
+                          <span class="text-danger">{{ $message }}</span>
+                          @enderror
+                        </div>
 
-                      <button type="submit" class="btn btn-primary">Add Brand</button>
+                        <button type="submit" class="btn btn-primary">Add Brand</button>
                     </form>
                     
                   </div>

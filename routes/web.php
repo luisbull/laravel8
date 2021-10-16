@@ -8,6 +8,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MultiImageController;
 use App\Http\Controllers\UserController;
 use App\Models\Brand;
@@ -92,3 +93,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout');
 // Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 // END User LOGOUT //
+
+// Admin ALL routes //
+Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider',[HomeController::class, 'StoreSlider'])->name('store.slider');
+// END Admin ALL routes //

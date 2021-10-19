@@ -9,6 +9,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MultiImageController;
 use App\Http\Controllers\UserController;
 use App\Models\Brand;
@@ -107,4 +108,7 @@ Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
 Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
 Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'Edit']);
+Route::post('/about/update/{id}', [AboutController::class, 'Update']);
+Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
 // END Home About ALL routes //

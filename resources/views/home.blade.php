@@ -8,7 +8,9 @@
         <div class="section-title">
           <h2>About Us</strong></h2>
         </div>
-
+        
+        
+        
         <div class="row content">
           <div class="col-lg-6" data-aos="fade-right">
             <h2>Eum ipsam laborum deleniti velitena</h2>

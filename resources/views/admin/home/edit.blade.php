@@ -34,14 +34,14 @@
                       </div>
                       <div class="mb-3">
                         <label for="aboutShortDescription" class="form-label">Short Description</label>
-                        <input type="text" name="short_description" class="form-control" id="aboutShortDescription" aria-describedby="ShortDescription" value="{{ $homeAbout->short_description }}">
+                        <textarea type="text" name="short_description" class="form-control" id="aboutShortDescription" aria-describedby="ShortDescription">{{ $homeAbout->short_description }}</textarea>
                         @error('short_description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>
                       <div class="mb-3">
                         <label for="aboutLongDescription" class="form-label">Long Description</label>
-                        <input type="text" name="long_description" class="form-control" id="aboutLongDescription" aria-describedby="LongDescription" value="{{ $homeAbout->long_description }}">
+                        <textarea type="text" name="long_description" class="form-control" id="aboutLongDescription" aria-describedby="LongDescription">{{ $homeAbout->long_description }}</textarea>
                         @error('long_description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror

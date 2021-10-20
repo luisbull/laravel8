@@ -89,7 +89,7 @@ class AboutController extends Controller
         ]);
 
 
-        return redirect()->back()->with('success','About Updated Succesfully');
+        return redirect()->route('home.about')->with('success','About Updated Succesfully');
     }
 
     ////////////

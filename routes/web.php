@@ -33,7 +33,8 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     // return view('welcome');
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $homeAbout = DB::table('home_abouts')->first(); // we use first to get just one entry from DB
+    return view('home', compact('brands','homeAbout'));
 });
 
 Route::get('/home', function () {

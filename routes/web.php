@@ -36,7 +36,8 @@ Route::get('/', function () {
     // return view('welcome');
     $brands = DB::table('brands')->get(); // get all DB so can be @foreach in respective blade, this case home.blade.php
     $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
-    return view('home', compact('brands','homeAbout'));
+    $services = DB::table('services')->get();
+    return view('home', compact('brands','homeAbout','services'));
 });
 
 Route::get('/home', function () {

@@ -11,6 +11,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MultiImageController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
@@ -30,10 +31,11 @@ Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
+// This is FRONTEND route, include all DBs here in order to access dinamically //
 Route::get('/', function () {
     // return view('welcome');
-    $brands = DB::table('brands')->get();
-    $homeAbout = DB::table('home_abouts')->first(); // we use first to get just one entry from DB
+    $brands = DB::table('brands')->get(); // get all DB so can be @foreach in respective blade, this case home.blade.php
+    $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
     return view('home', compact('brands','homeAbout'));
 });
 
@@ -113,3 +115,13 @@ Route::get('/about/edit/{id}', [AboutController::class, 'Edit']);
 Route::post('/about/update/{id}', [AboutController::class, 'Update']);
 Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
 // END Home About ALL routes //
+
+// Home Services ALL routes //
+Route::get('/home/service', [ServiceController::class, 'HomeService'])->name('home.service');
+Route::get('/add/service', [ServiceController::class,'AddService'])->name('add.service');
+Route::post('/store/service', [ServiceController::class, 'StoreService'])->name('store.service');
+Route::get('/service/edit/{id}', [ServiceController::class, 'Edit']);
+Route::post('/service/update/{id}', [ServiceController::class, 'Update']);
+Route::get('/service/delete/{id}', [ServiceController::class, 'Delete']);
+// END Home Services ALL routes //
+

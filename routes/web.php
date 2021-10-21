@@ -37,7 +37,9 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); // get all DB so can be @foreach in respective blade, this case home.blade.php
     $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
     $services = DB::table('services')->get();
-    return view('home', compact('brands','homeAbout','services'));
+    $multi_images = DB::table('multi_pics')->get();
+    // $projects = DB::table('projects')->get();
+    return view('home', compact('brands','homeAbout','services','multi_images'));
 });
 
 Route::get('/home', function () {
@@ -125,4 +127,8 @@ Route::get('/service/edit/{id}', [ServiceController::class, 'Edit']);
 Route::post('/service/update/{id}', [ServiceController::class, 'Update']);
 Route::get('/service/delete/{id}', [ServiceController::class, 'Delete']);
 // END Home Services ALL routes //
+
+// Home Projects (PORTFOLIO) ALL routes //
+// Route::get('home/pojects', [, ''])->name('home.projects');
+// END Home Projects (PORTFOLIO) ALL routes //
 

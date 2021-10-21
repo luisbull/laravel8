@@ -53,7 +53,7 @@
             </div>
           </div>
           @endforeach 
-           
+
         </div>
 
       </div>
@@ -169,6 +169,17 @@
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
+          @foreach($multi_images as $image)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image->xxx}}">
+            <img src="{{ 'storage/'.$image->image }}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="{{ 'storage/'.$image->image }}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+          @endforeach
 
         </div>
 

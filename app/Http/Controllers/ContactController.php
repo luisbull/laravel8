@@ -100,4 +100,12 @@ class ContactController extends Controller
 
         return redirect()->back()->with('success', 'Contact Deleted Successfully');
     }
+
+    ///////////////////
+    // FRONTEND PAGE //
+    ///////////////////
+    public function Contact(){
+        $homeContact = Contact::first();
+        return view('layouts.pages.contact', compact('homeContact'));
+    }
 }

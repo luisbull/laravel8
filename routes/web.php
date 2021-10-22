@@ -141,7 +141,9 @@ Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portf
 // END Potfolio ALL routes //
 
 // Home Contact ALL routes //
-Route::get('/contact', [ContactController::class, 'HomeContact'])->name('home.contact');
+
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::get('/home/contact', [ContactController::class, 'HomeContact'])->name('home.contact');
 Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
 Route::post('/store/contact', [ContactController::class, 'StoreContact'])->name('store.contact');
 Route::get('/contact/edit/{id}', [ContactController::class, 'Edit']);

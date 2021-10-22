@@ -39,8 +39,9 @@ Route::get('/', function () {
     $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
     $services = DB::table('services')->get();
     $multi_images = DB::table('multi_pics')->get();
+    $homeContact = DB::table('contacts')->first();
     // $projects = DB::table('projects')->get();
-    return view('home', compact('brands','homeAbout','services','multi_images'));
+    return view('home', compact('brands','homeAbout','services','multi_images','homeContact'));
 });
 
 Route::get('/home', function () {
@@ -138,3 +139,12 @@ Route::get('/service/delete/{id}', [ServiceController::class, 'Delete']);
 // Potfolio ALL routes //
 Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
 // END Potfolio ALL routes //
+
+// Home Contact ALL routes //
+Route::get('/contact', [ContactController::class, 'HomeContact'])->name('home.contact');
+Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/store/contact', [ContactController::class, 'StoreContact'])->name('store.contact');
+Route::get('/contact/edit/{id}', [ContactController::class, 'Edit']);
+Route::post('/contact/update/{id}', [ContactController::class, 'Update']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'Delete']);
+// END Home Contact ALL routes //

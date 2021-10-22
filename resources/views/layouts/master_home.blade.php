@@ -43,15 +43,13 @@
   @include('layouts.body.header')
   <!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  @include('layouts.body.slider')
-  <!-- End Hero -->
 
   <!-- ======= Main ======= -->
   <main id="main">
   @yield('home_content')
   </main>
   <!-- End #main -->
+  
 
   <!-- ======= Footer ======= -->
   @include('layouts.body.footer')

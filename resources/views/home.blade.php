@@ -1,6 +1,10 @@
 @extends('layouts.master_home')
 
-@section('home_content')
+  <!-- ======= Hero Section ======= -->
+  @include('layouts.body.slider')
+  <!-- End Hero -->
+
+  @section('home_content')
     <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
       <div class="container" data-aos="fade-up">

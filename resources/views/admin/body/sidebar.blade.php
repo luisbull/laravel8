@@ -39,7 +39,7 @@
                       <div class="sub-menu">  
                             <li  class="active" >
                               <a class="sidenav-item-link" href="{{ route('home.slider') }}">
-                                <span class="nav-text">Slider</span>                                
+                                <span class="nav-text">Home Slider</span>                                
                               </a>
                             </li>
                             <li  class="active" >
@@ -67,8 +67,13 @@
                                 <span class="nav-text">Home Brand</span>                                
                               </a>
                             </li>
-
                             <li  class="active" >
+                              <a class="sidenav-item-link" href="{{ route('home.contact') }}">
+                                <span class="nav-text">Home Contact</span>                                
+                              </a>
+                            </li>
+
+                            <!-- <li  class="active" >
                               <a class="sidenav-item-link" href="index.html">
                                 <span class="nav-text">Ecommerce</span>                                
                               </a>
@@ -79,12 +84,35 @@
                                 <span class="nav-text">Analytics</span>
                                 <span class="badge badge-success">new</span>
                               </a>
-                            </li>
+                            </li> -->
                       </div>
                     </ul>
                   </li>
 
-                
+
+
+                  <li  class="has-sub" >
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
+                      aria-expanded="false" aria-controls="ui-elements">
+                      <i class="mdi mdi-folder-multiple-outline"></i>
+                      <span class="nav-text">Contact</span> <b class="caret"></b>
+                    </a>
+                    <ul  class="collapse"  id="ui-elements"
+                      data-parent="#sidebar-menu">
+                      <div class="sub-menu">
+
+                        <li  class="active" >
+                          <a class="sidenav-item-link" href="">
+                            <span class="nav-text">Contact Messages</span>                                
+                          </a>
+                        </li>
+                        
+                      </div>
+                    </ul>
+                  </li>
+
+
+                  
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">

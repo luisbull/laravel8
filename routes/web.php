@@ -11,6 +11,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MultiImageController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Models\Brand;
@@ -46,6 +47,7 @@ Route::get('/home', function () {
     // return view('welcome');
     echo 'This home page';
 });
+
 
 Route::get('/about', function (){
     return view('about');
@@ -101,14 +103,14 @@ Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout
 // Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 // END User LOGOUT //
 
-// Admin ALL routes //
+// Home Slider ALL routes //
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
 Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
 Route::post('/store/slider',[HomeController::class, 'StoreSlider'])->name('store.slider');
 Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
 Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
-// END Admin ALL routes //
+// END Home Slider ALL routes //
 
 // Home About ALL routes //
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
@@ -132,3 +134,7 @@ Route::get('/service/delete/{id}', [ServiceController::class, 'Delete']);
 // Route::get('home/pojects', [, ''])->name('home.projects');
 // END Home Projects (PORTFOLIO) ALL routes //
 
+
+// Potfolio ALL routes //
+Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
+// END Potfolio ALL routes //

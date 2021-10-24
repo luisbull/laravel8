@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class MessageController extends Controller
 {
@@ -56,7 +55,7 @@ class MessageController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return redirect()->back()->with('success', 'Message Sent Successfully');
+        return back()->with('success', 'Message Sent Successfully');
 
     }
 

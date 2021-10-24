@@ -102,7 +102,7 @@
                       <div class="sub-menu">
 
                         <li  class="active" >
-                          <a class="sidenav-item-link" href="">
+                          <a class="sidenav-item-link" href="{{ route('contact.message') }}">
                             <span class="nav-text">Contact Messages</span>                                
                           </a>
                         </li>

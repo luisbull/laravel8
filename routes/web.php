@@ -10,6 +10,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MultiImageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
@@ -141,7 +142,6 @@ Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portf
 // END Potfolio ALL routes //
 
 // Home Contact ALL routes //
-
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::get('/home/contact', [ContactController::class, 'HomeContact'])->name('home.contact');
 Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
@@ -150,3 +150,13 @@ Route::get('/contact/edit/{id}', [ContactController::class, 'Edit']);
 Route::post('/contact/update/{id}', [ContactController::class, 'Update']);
 Route::get('/contact/delete/{id}', [ContactController::class, 'Delete']);
 // END Home Contact ALL routes //
+
+// Contact Message ALL routes //
+Route::get('/message', [MessageController::class, 'Message'])->name('message');
+Route::get('/home/message', [MessageController::class, 'ContactMessage'])->name('contact.message');
+Route::get('/add/message', [MessageController::class, 'AddMessage'])->name('add.message');
+Route::post('/store/message', [MessageController::class, 'StoreMessage'])->name('store.message');
+Route::get('/message/edit/{id}', [MessageController::class, 'Edit']);
+Route::post('/message/update/{id}', [MessageController::class, 'Update']);
+Route::get('/message/delete/{id}', [MessageController::class, 'Delete']);
+// END Contact Message ALL routes //

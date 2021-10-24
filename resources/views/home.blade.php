@@ -272,13 +272,13 @@
 
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" />
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ old('name') }}"/>
                   @error('name')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" />
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}"/>
                   @error('email')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -286,13 +286,13 @@
               </div>
 
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" value="{{ old('subject') }}"/>
                 @error('subject')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Message">{{ old('message') }}</textarea>
                 @error('message')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

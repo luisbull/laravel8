@@ -260,7 +260,7 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="{{ route('store.message') }}" method="post">
+            <form action="{{ route('store.message') }}#contact" method="post">
               @csrf
 
               @if(session('success'))

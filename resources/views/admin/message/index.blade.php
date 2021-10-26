@@ -11,9 +11,9 @@
         <div class="container">
             <div class="row">
 
-              <a href="{{ route('add.message')}}" class="text-right" rel="noopener noreferrer">
+              <!-- <a href="{{ route('add.message')}}" class="text-right" rel="noopener noreferrer">
                 <button class="btn btn-info">Add Message</button>  
-              </a> <br><br>
+              </a> <br><br> -->
               
               <div class="col-md-12">
                 <div class="card">
@@ -31,9 +31,9 @@
                           <tr>
                           <th scope="col" width="5%">#</th>
                           <th scope="col" width="15%">Name</th>
-                          <th scope="col" width="35%">Email</th>
+                          <th scope="col" width="15%">Email</th>
                           <th scope="col" width="15%">Subject</th>
-                          <th scope="col" width="15%">Message</th>
+                          <th scope="col" width="30%">Message</th>
                           <th scope="col" width="15%">Action</th>
                           </tr>
                       </thead>
@@ -48,7 +48,7 @@
                           <td>{{ $message->subject }}</td>
                           <td>{{ $message->message }}</td>
                           <td>
-                            <a href="{{ url('message/edit/'.$message->id) }}" class="btn btn-info">Edit</a>
+                            <!-- <a href="{{ url('message/edit/'.$message->id) }}" class="btn btn-info">Edit</a> -->
                             <a href="{{ url('message/delete/'.$message->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>

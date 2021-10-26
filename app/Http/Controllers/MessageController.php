@@ -37,7 +37,7 @@ class MessageController extends Controller
         $validate = $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required',
+                'email' => 'required|email|unique:users,email',
                 'subject' => 'required',
                 'message' => 'required',
             ],
@@ -55,7 +55,7 @@ class MessageController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return back()->with('success', 'Message Sent Successfully');
+        return redirect()->back()->with('success', 'Message Sent Successfully');
 
     }
 
@@ -74,7 +74,7 @@ class MessageController extends Controller
         $validate = $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required',
+                'email' => 'required|email|unique:users,email',
                 'subject' => 'required',
                 'message' => 'required',
             ],

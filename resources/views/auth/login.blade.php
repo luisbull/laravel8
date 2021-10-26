@@ -62,6 +62,14 @@
             </div>
             <div class="card-body p-5">
 
+              @if(session('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success')}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span aria-hidden="true">&times;</span>
+              </div>
+              @endif
+
               <h4 class="text-dark mb-5">Sign In</h4>
               <x-jet-validation-errors class="mb-4" />
               <!-- <form action="/index.html"> -->

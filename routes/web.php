@@ -15,6 +15,7 @@ use App\Http\Controllers\MultiImageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserPasswordController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
@@ -104,6 +105,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout');
 // Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 // END User LOGOUT //
+
+// User PROFILE and PASSWORD change//
+Route::get('/user/password', [UserPasswordController::class, 'ChangePassword'])->name('change.password');
+Route::post('/password/update', [UserPasswordController::class, 'PasswordUpdate'])->name('password.update.dashboard');
+// END User PROFILE and PASSWORD change//
+
 
 // Home Slider ALL routes //
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');

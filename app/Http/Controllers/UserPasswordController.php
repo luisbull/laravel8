@@ -16,7 +16,7 @@ class UserPasswordController extends Controller
     }
 
     public function ChangePassword(){
-        return view('admin.userPWD.user_password');
+        return view('admin.user.user_password');
     }
 
     public function PasswordUpdate(Request $request){

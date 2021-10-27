@@ -16,6 +16,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserPasswordController;
+use App\Http\Controllers\UserProfileController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
@@ -109,6 +110,8 @@ Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout
 // User PROFILE and PASSWORD change//
 Route::get('/user/password', [UserPasswordController::class, 'ChangePassword'])->name('change.password');
 Route::post('/password/update', [UserPasswordController::class, 'PasswordUpdate'])->name('password.update.dashboard');
+Route::get('/user/profile', [UserProfileController::class, 'ChangeProfile'])->name('change.profile');
+Route::post('/profile/update', [UserProfileController::class, 'ProfileUpdate'])->name('profile.update.dashboard');
 // END User PROFILE and PASSWORD change//
 
 

@@ -43,7 +43,7 @@ class UserProfileController extends Controller
              
             return redirect()->back()->with('success', 'Profile Updated Successfuly');
         }else {
-            return redirect()->back()->with('success', 'Profile Updated Failed');
+            return redirect()->back()->with('error', 'Profile Updated Failed');
         }
     }
 }

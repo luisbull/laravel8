@@ -110,7 +110,7 @@ Route::get('/user/logout', [UserController::class, 'Logout'])->name('user.logout
 // User PROFILE and PASSWORD change//
 Route::get('/user/password', [UserPasswordController::class, 'ChangePassword'])->name('change.password');
 Route::post('/password/update', [UserPasswordController::class, 'PasswordUpdate'])->name('password.update.dashboard');
-Route::get('/user/profile', [UserProfileController::class, 'ChangeProfile'])->name('change.profile');
+Route::get('/user/profiled', [UserProfileController::class, 'ChangeProfile'])->name('change.profile');
 Route::post('/profile/update', [UserProfileController::class, 'ProfileUpdate'])->name('profile.update.dashboard');
 // END User PROFILE and PASSWORD change//
 

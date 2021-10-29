@@ -23,6 +23,7 @@ class UserProfileController extends Controller
 
         }
     }
+    
     public function ProfileUpdate(Request $request){
 
         $validated = $request->validate(

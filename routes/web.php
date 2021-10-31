@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserPasswordController;
 use App\Http\Controllers\UserProfileController;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB; // use for Query Builder
 
 /*
@@ -170,3 +171,7 @@ Route::get('/message/edit/{id}', [MessageController::class, 'Edit']);
 Route::post('/message/update/{id}', [MessageController::class, 'Update']);
 Route::get('/message/delete/{id}', [MessageController::class, 'Delete']);
 // END Contact Message ALL routes //
+
+Route::get('/storage', function(){
+ Artisan::call('storage:link');
+});

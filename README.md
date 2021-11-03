@@ -1,3 +1,14 @@
+## PHP Laravel 8 dashboard
+
+A full-stack PHP Laravel 8 application project that allows user to control frontend content through an authentication system dashboard by using MVC architectural pattern.
+
+Implemented features:
+
+- User login - registration - authentication
+- Existing user can control their password, details, profile image)
+- Authenticated user can control frontend content (CRUD) from a dashboard.
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

@@ -2,7 +2,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.html">
+              <a href="{{ route('home.slider') }}">
                 <svg
                   class="brand-icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@
                     <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                   </g>
                 </svg>
-                <span class="brand-name">Sleek Dashboard</span>
+                <span class="brand-name">Dashboard</span>
               </a>
             </div>
             <!-- begin sidebar scrollbar -->
@@ -57,11 +57,11 @@
                                 <span class="nav-text">Home Portfolio</span>                                
                               </a>
                             </li>
-                            <li  class="active" >
+                            <!-- <li  class="active" >
                               <a class="sidenav-item-link" href="index.html">
                                 <span class="nav-text">Home Portfolio(progress)</span>                                
                               </a>
-                            </li>
+                            </li> -->
                             <li  class="active" >
                               <a class="sidenav-item-link" href="{{ route('all.brand') }}">
                                 <span class="nav-text">Home Brand</span>                                
@@ -113,7 +113,7 @@
 
 
                   
-                  <li  class="has-sub" >
+                  <!-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
@@ -216,10 +216,10 @@
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> -->
             
                 
-                  <li  class="has-sub" >
+                  <!-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                       aria-expanded="false" aria-controls="charts">
                       <i class="mdi mdi-chart-pie"></i>
@@ -235,10 +235,10 @@
                             </li>
                       </div>
                     </ul>
-                  </li>
+                  </li> -->
 
                 
-                  <li  class="has-sub" >
+                  <!-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
                       aria-expanded="false" aria-controls="pages">
                       <i class="mdi mdi-image-filter-none"></i>
@@ -285,10 +285,10 @@
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> -->
                 
 
-                  <li  class="has-sub" >
+                  <!-- <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
                       aria-expanded="false" aria-controls="documentation">
                       <i class="mdi mdi-book-open-page-variant"></i>
@@ -368,7 +368,7 @@
                         
                       </div>
                     </ul>
-                  </li>
+                  </li> -->
                 
 
               </ul>

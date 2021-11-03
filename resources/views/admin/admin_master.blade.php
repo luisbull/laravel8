@@ -69,7 +69,7 @@
               </button>
               <!-- search form -->
               <div class="search-form d-none d-lg-inline-block">
-                <div class="input-group">
+                <!-- <div class="input-group">
                   <button type="button" name="search" id="search-btn" class="btn btn-flat">
                     <i class="mdi mdi-magnify"></i>
                   </button>
@@ -78,20 +78,20 @@
                 </div>
                 <div id="search-results-container">
                   <ul id="search-results"></ul>
-                </div>
+                </div> -->
               </div>
 
               <div class="navbar-right ">
                 <ul class="nav navbar-nav">
                   <!-- Github Link Button -->
-                  <li class="github-link mr-3">
+                  <!-- <li class="github-link mr-3">
                     <a class="btn btn-outline-secondary btn-sm" href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
                       <span class="d-none d-md-inline-block mr-2">Source Code</span>
                       <i class="mdi mdi-github-circle"></i>
                     </a>
 
-                  </li>
-                  <li class="dropdown notifications-menu">
+                  </li> -->
+                  <!-- <li class="dropdown notifications-menu">
                     <button class="dropdown-toggle" data-toggle="dropdown">
                       <i class="mdi mdi-bell-outline"></i>
                     </button>
@@ -131,11 +131,11 @@
                         <a class="text-center" href="#"> View All </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> -->
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="{{ asset(Auth::user()->profile_photo_url) }}" class="user-image" alt="User Image" />
+                      <img src="{{ asset(Auth::user()->profile_photo_url) }}" class="user-image" alt="User Image" style="display: initial;"/>
                       <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -157,12 +157,12 @@
                           <i class="mdi mdi-email"></i> Change Password
                         </a>
                       </li>
-                      <li>
+                      <!-- <li>
                         <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
                       </li>
                       <li>
                         <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
-                      </li>
+                      </li> -->
 
                       <li class="dropdown-footer">
                         <a href="{{ route('user.logout') }}"> <i class="mdi mdi-logout"></i> Log Out </a>

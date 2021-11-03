@@ -23,7 +23,7 @@
         @endif
 
         <div class="card-body">
-          <form action="{{ route('profile.update.dashboard') }}" method="POST">
+          <form action="{{ route('profile.update.dashboard') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="profileName">Profile Name</label>
@@ -38,6 +38,16 @@
                 @error('profile_email')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
+              </div>
+              <div class="form-group">
+                <label for="profileImage">Profile Email</label>
+                <input type="file" name="profile_image" class="form-control" id="profileImage"  value="{{ asset('storage/'.$userProfile->profile_photo_path) }}">
+                @error('profile_image')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+              </div>
+              <div class="">
+                <img src="{{ asset('storage/'.$userProfile->profile_photo_path) }}" class="w-25 p-3" alt="" srcset="">
               </div>
 
               <div class="form-footer pt-4 pt-5 mt-4 border-top">

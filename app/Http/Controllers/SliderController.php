@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
-class HomeController extends Controller
+class SliderController extends Controller
 {
 
     public function __construct()

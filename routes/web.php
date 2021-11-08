@@ -9,7 +9,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 // use App\Models\User; //use for Eloquent
 
 use App\Http\Controllers\BrandController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MultiImageController;
 use App\Http\Controllers\PortfolioController;
@@ -117,12 +117,12 @@ Route::post('/profile/update', [UserProfileController::class, 'ProfileUpdate'])-
 
 
 // Home Slider ALL routes //
-Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
-Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
-Route::post('/store/slider',[HomeController::class, 'StoreSlider'])->name('store.slider');
-Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
-Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
-Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
+Route::get('/home/slider', [SliderController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider',[SliderController::class, 'StoreSlider'])->name('store.slider');
+Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
+Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
+Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
 // END Home Slider ALL routes //
 
 // Home About ALL routes //

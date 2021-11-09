@@ -45,6 +45,7 @@ class MultiImageController extends Controller
             MultiPic::insert([
                 // 'brand_name' => $request->brand_name.'.'.$single_image->extension(),
                 'image' => $single_image->store($up_location, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
+                'xxx' => $request->portfolio_category,
                 'created_at' => Carbon::now()
             ]);
 

@@ -54,6 +54,13 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>
+                      <div class="mb-3">
+                        <label for="portfolioCategory" class="form-label">Category</label>
+                        <input type="text" name="portfolio_category" multiple="" class="form-control" id="portfolioCategory" aria-describedby="portfolioCategory">
+                        @error('portfolio_category')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
 
                       <button type="submit" class="btn btn-primary">Add Images</button>
                     </form>

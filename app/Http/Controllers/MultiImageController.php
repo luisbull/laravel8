@@ -17,20 +17,25 @@ class MultiImageController extends Controller
     
     public function AllImages(){
         $allImages = MultiPic::all();
-        return view('admin.pics.index', compact('allImages'));
+        $categories_array = array("app","card","web");
+        return view('admin.pics.index', compact('allImages', 'categories_array'));
     }
 
     public function StoreImages(Request $request){
-        // $validated = $request->validate(
-        //     [
+        $validated = $request->validate(
+            [
         //         'brand_name' => 'required|unique:brands|min:4',
-        //         'image' => 'required|mimes:jpg,jpeg,bmp,png,svg',
-        //     ],
-        //     [
-        //         'brand_name.required' => 'Please enter brand name', // here can be customised text instead of default message
+                'image' => 'required',
+                'portfolio_title' => 'required',
+                'portfolio_category' => 'required',
+            ],
+            [
+                // 'image.required' => 'POR AKI', // here can be customised text instead of default message
         //         //  'brand_name.min' => 'Min 20' // here can be customised text instead of default message
-        //     ], 
-        // );
+            ], 
+        );
+
+        
 
         $array_of_images = $request->file('image');
         $up_location = 'image/allpictures';  
@@ -45,7 +50,8 @@ class MultiImageController extends Controller
             MultiPic::insert([
                 // 'brand_name' => $request->brand_name.'.'.$single_image->extension(),
                 'image' => $single_image->store($up_location, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
-                'xxx' => $request->portfolio_category,
+                'category' => $request->portfolio_category,
+                'title' => $request->portfolio_title,
                 'created_at' => Carbon::now()
             ]);
 

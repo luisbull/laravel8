@@ -11,6 +11,7 @@ class MultiPic extends Model
     
     protected $fillable = [
         'image',
-        'xxx',
+        'category',
+        'title',
     ];
 }

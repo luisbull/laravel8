@@ -33,6 +33,7 @@
                           <img src="{{ asset('storage/'.$single_image->image) }}" alt="">
                           <div> {{ asset($single_image->id) }} </div><br>
                           <button type="submit" class="btn btn-info">Edit</button>
+                          <a href="" class="btn btn-secondary btn-danger">Delete-logic pending</a>
                         </div>
                       </div>
                     @endforeach

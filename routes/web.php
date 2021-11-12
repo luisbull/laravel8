@@ -87,8 +87,8 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 // END Brand controller //
 
 // MultiImage controller //
-Route::get('/multiImage/all', [MultiImageController::class, 'AllImages'])->name('all.multiImage');
-Route::post('/multiImage/store', [MultiImageController::class, 'StoreImages'])->name('store.images');
+Route::get('/multiImage/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage');
+Route::post('/multiImage/store', [PortfolioController::class, 'StoreImages'])->name('store.images');
 // END MultiImage controller //
 
 

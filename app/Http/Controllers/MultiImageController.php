@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MultiPic;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 use Carbon\Carbon;
@@ -16,26 +16,21 @@ class MultiImageController extends Controller
     }
     
     public function AllImages(){
-        $allImages = MultiPic::all();
-        $categories_array = array("app","card","web");
-        return view('admin.pics.index', compact('allImages', 'categories_array'));
+        $allImages = Portfolio::all();
+        return view('admin.pics.index', compact('allImages'));
     }
 
     public function StoreImages(Request $request){
-        $validated = $request->validate(
-            [
+        // $validated = $request->validate(
+        //     [
         //         'brand_name' => 'required|unique:brands|min:4',
-                'image' => 'required',
-                'portfolio_title' => 'required',
-                'portfolio_category' => 'required',
-            ],
-            [
-                // 'image.required' => 'POR AKI', // here can be customised text instead of default message
+        //         'image' => 'required|mimes:jpg,jpeg,bmp,png,svg',
+        //     ],
+        //     [
+        //         'brand_name.required' => 'Please enter brand name', // here can be customised text instead of default message
         //         //  'brand_name.min' => 'Min 20' // here can be customised text instead of default message
-            ], 
-        );
-
-        
+        //     ], 
+        // );
 
         $array_of_images = $request->file('image');
         $up_location = 'image/allpictures';  
@@ -47,11 +42,9 @@ class MultiImageController extends Controller
                 $constraint->aspectRatio();
             })->save();
     
-            MultiPic::insert([
+            Portfolio::insert([
                 // 'brand_name' => $request->brand_name.'.'.$single_image->extension(),
                 'image' => $single_image->store($up_location, 'public'), //for this to work remember, run in terminal: php artisan storage:link //
-                'category' => $request->portfolio_category,
-                'title' => $request->portfolio_title,
                 'created_at' => Carbon::now()
             ]);
 

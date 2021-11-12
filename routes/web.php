@@ -42,7 +42,7 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); // get all DB so can be @foreach in respective blade, this case home.blade.php
     $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
     $services = DB::table('services')->get();
-    $allImages = DB::table('multi_pics')->get();
+    $allImages = DB::table('portfolios')->get();
     $homeContact = DB::table('contacts')->first();
     // $projects = DB::table('projects')->get();
     return view('home', compact('brands','homeAbout','services','allImages','homeContact'));
@@ -87,8 +87,8 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 // END Brand controller //
 
 // MultiImage controller //
-Route::get('/multiImage/all', [MultiImageController::class, 'AllImages'])->name('all.multiImage');
-Route::post('/multiImage/store', [MultiImageController::class, 'StoreImages'])->name('store.images');
+Route::get('/multiImage/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage');
+Route::post('/multiImage/store', [PortfolioController::class, 'StoreImages'])->name('store.images');
 // END MultiImage controller //
 
 

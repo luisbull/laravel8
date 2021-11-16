@@ -1,3 +1,9 @@
+@php
+$prefix = Request::route()->getPrefix();
+$route = Route::current()->getName();
+
+@endphp
+
 <aside class="left-sidebar bg-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
@@ -28,7 +34,7 @@
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
                   
-                  <li  class="has-sub active expand" >
+                  <li  class="has-sub {{ ($prefix == '/home') ? 'active' : '' }} expand" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
@@ -91,7 +97,7 @@
 
 
 
-                  <li  class="has-sub" >
+                  <li  class="has-sub {{ ($prefix == '/contactmessages') ? 'active' : '' }}" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>

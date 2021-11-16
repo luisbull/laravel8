@@ -1,3 +1,9 @@
+@php
+$prefix = Request::route()->getPrefix();
+$route = Route::current()->getName();
+
+@endphp
+
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
@@ -7,7 +13,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{url('/')}}">Home</a></li>
+          <li class="{{ ($route == null) ? 'active' : '' }}"><a href="{{url('/')}}">Home</a></li>
 
           <!-- <li class="drop-down"><a href="">About</a>
             <ul>
@@ -27,11 +33,11 @@
           </li> -->
 
           <!-- <li><a href="services.html">Services</a></li> -->
-          <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+          <li class="{{ ($route == 'portfolio') ? 'active' : '' }}"><a href="{{ route('portfolio') }}">Portfolio</a></li>
           <!-- <li><a href="pricing.html">Pricing</a></li> -->
           <!-- <li><a href="blog.html">Blog</a></li> -->
-          <li><a href="{{ route('contact') }}">Contact</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
+          <li class="{{ ($route == 'contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
+          <li class="{{ ($route == 'login') ? 'active' : '' }}"><a href="{{ route('login') }}">Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

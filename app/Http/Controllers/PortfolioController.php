@@ -10,10 +10,10 @@ use Intervention\Image\Facades\Image;
 
 class PortfolioController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function AllImages(){
         $allImages = Portfolio::all();
@@ -60,4 +60,14 @@ class PortfolioController extends Controller
 
         return redirect()->back()->with('success', 'Images Inserted Successfully');
     }
+
+    ///////////////////
+    // FRONTEND PAGE //
+    ///////////////////
+    public function Portfolio(){
+        $allImages = Portfolio::all();
+        $categories_array = array("app","card","web");
+        return view('layouts.pages.portfolio', compact('allImages', 'categories_array'));
+    }
+
 }

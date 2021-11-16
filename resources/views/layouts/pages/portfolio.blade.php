@@ -115,11 +115,11 @@
           </div>
           @foreach($allImages as $image)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $image->category}}">
-            <img src="{{ 'storage/'.$image->image }}" class="img-fluid" alt="">
+            <img src="{{ asset('storage/'.$image->image) }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>{{ $image->title }}</h4>
               <p>{{ $image->category }}</p>
-              <a href="{{ 'storage/'.$image->image }}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="{{ asset('storage/'.$image->image) }}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>

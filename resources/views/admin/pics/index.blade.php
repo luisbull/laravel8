@@ -39,6 +39,35 @@
                     @endforeach
                   </div>
 
+                  <div class="col-md-12">
+                    <div class="card">
+
+                      @if(session('success'))
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success')}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      @endif
+
+                      <div class="card-header">About Data</div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                              <th scope="col" width="5%">#</th>
+                              <th scope="col" width="15%">About Title</th>
+                              <th scope="col" width="15%">Short Description</th>
+                              <th scope="col" width="35%">Long Description</th>
+                              <th scope="col" width="15%">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            
+                          </tbody>
+                      </table>
+                      <!--  $homeAbout->links() -->
+                    </div>
+                  </div>
+
                 </div>
               </div>
 

@@ -141,6 +141,7 @@ Route::prefix('/home')->group(function(){
     Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
     Route::get('/portfolio/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage');
     Route::post('/portfolio/store', [PortfolioController::class, 'StoreImages'])->name('store.images');
+    Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'Edit'])->name('portfolio.edit');
     // END Potfolio ALL routes //
     
     // Brand controller //

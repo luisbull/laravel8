@@ -15,12 +15,18 @@ class PortfolioController extends Controller
     //     $this->middleware('auth');
     // }
     
+    /////////////////////
+    // READ (load ALL) //
+    /////////////////////
     public function AllImages(){
         $allImages = Portfolio::all();
         $categories_array = array("app","card","web");
         return view('admin.pics.index', compact('allImages', 'categories_array'));
     }
 
+    ////////////
+    // CREATE //
+    ////////////
     public function StoreImages(Request $request){
         $validated = $request->validate(
             [
@@ -59,6 +65,17 @@ class PortfolioController extends Controller
 
 
         return redirect()->back()->with('success', 'Images Inserted Successfully');
+    }
+
+    //////////
+    // EDIT //
+    //////////
+
+    public function Edit($id){
+        $portfolio = Portfolio::find($id);
+        $categories_array = array("app","card","web");
+        $categories_array = array_diff($categories_array, array($portfolio->category));
+        return view('admin.pics.edit', compact('portfolio', 'categories_array'));
     }
 
     ///////////////////

@@ -21,23 +21,6 @@
                   </div>
                   @endif
 
-                  <div class="card-header">All Projects</div>
-                  <div class="card-group">
-                    <!-- <table class="table">
-                    </table> -->
-                    @foreach($allImages as $single_image)
-                      <div class="col-md-4 mt-5">
-                        <div class="card">
-                          <div> {{ $single_image->title }} </div>
-                          <div> {{ $single_image->category }} </div>
-                          <img src="{{ asset('storage/'.$single_image->image) }}" alt="">
-                          <div> {{ asset($single_image->id) }} </div><br>
-                          <button type="submit" class="btn btn-info">Edit</button>
-                          <a href="" class="btn btn-secondary btn-danger">Delete-logic pending</a>
-                        </div>
-                      </div>
-                    @endforeach
-                  </div>
 
                   <div class="col-md-12">
                     <div class="card">
@@ -55,13 +38,26 @@
                               <tr>
                               <th scope="col" width="5%">#</th>
                               <th scope="col" width="15%">About Title</th>
-                              <th scope="col" width="15%">Short Description</th>
-                              <th scope="col" width="35%">Long Description</th>
+                              <th scope="col" width="15%">Category</th>
+                              <th scope="col" width="35%">Image</th>
                               <th scope="col" width="15%">Action</th>
                               </tr>
                           </thead>
                           <tbody>
-                            
+                            @php($i = 1) <!--If using pagination this won't work perfectly -->
+                            @foreach($allImages as $single_image)
+                            <tr>
+                              <th>{{ $i++ }}</th><!-- If using pagination this won't work perfectly - It would start from 1 again when changing page -->
+                              <!--<th>2xcurly brackets $homeAbout->firstItem()+$loop->index 2xcurly brackets</th>  Prevent pagination to start again from 1 when click next page -->
+                              <td>{{ $single_image->title }}</td>
+                              <td>{{ $single_image->category }}</td>
+                              <td><img src="{{ asset('storage/'.$single_image->image) }}" alt=""></td>
+                              <td>
+                                <a href="{{ route('portfolio.edit', $single_image->id) }}" class="btn btn-info col-md-12">Edit</a><br><br>
+                                <a href="{{ url('portfolio/delete/'.$single_image->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger col-md-12">Delete</a>
+                              </td>
+                            </tr>
+                            @endforeach
                           </tbody>
                       </table>
                       <!--  $homeAbout->links() -->

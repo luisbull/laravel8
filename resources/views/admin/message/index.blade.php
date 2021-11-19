@@ -55,7 +55,7 @@
                         @endforeach
                       </tbody>
                   </table>
-                  <!--  $contactMessage->links() -->
+                   {{ $contactMessage->links() }}
                 </div>
               </div>
 

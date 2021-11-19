@@ -109,27 +109,27 @@ Route::prefix('/home')->group(function(){
     Route::get('/slider', [SliderController::class, 'HomeSlider'])->name('home.slider');
     Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
     Route::post('/store/slider',[SliderController::class, 'StoreSlider'])->name('store.slider');
-    Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
-    Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
-    Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
+    Route::get('/slider/edit/{id}', [SliderController::class, 'Edit'])->name('slider.edit');
+    Route::post('/slider/update/{id}', [SliderController::class, 'Update'])->name('slider.update');
+    Route::get('/slider/delete/{id}', [SliderController::class, 'Delete'])->name('slider.delete');
     // END Home Slider ALL routes //
     
     // Home About ALL routes //
     Route::get('/about', [AboutController::class, 'HomeAbout'])->name('home.about');
     Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
     Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
-    Route::get('/about/edit/{id}', [AboutController::class, 'Edit']);
-    Route::post('/about/update/{id}', [AboutController::class, 'Update']);
-    Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
+    Route::get('/about/edit/{id}', [AboutController::class, 'Edit'])->name('about.edit');
+    Route::post('/about/update/{id}', [AboutController::class, 'Update'])->name('about.update');
+    Route::get('/about/delete/{id}', [AboutController::class, 'Delete'])->name('about.delete');
     // END Home About ALL routes //
     
     // Home Services ALL routes //
     Route::get('/service', [ServiceController::class, 'HomeService'])->name('home.service');
     Route::get('/add/service', [ServiceController::class,'AddService'])->name('add.service');
     Route::post('/store/service', [ServiceController::class, 'StoreService'])->name('store.service');
-    Route::get('/service/edit/{id}', [ServiceController::class, 'Edit']);
-    Route::post('/service/update/{id}', [ServiceController::class, 'Update']);
-    Route::get('/service/delete/{id}', [ServiceController::class, 'Delete']);
+    Route::get('/service/edit/{id}', [ServiceController::class, 'Edit'])->name('service.edit');
+    Route::post('/service/update/{id}', [ServiceController::class, 'Update'])->name('service.update');
+    Route::get('/service/delete/{id}', [ServiceController::class, 'Delete'])->name('service.delete');
     // END Home Services ALL routes //
     
     // Home Projects (PORTFOLIO) ALL routes //
@@ -148,9 +148,9 @@ Route::prefix('/home')->group(function(){
     // Brand controller //
     Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
     Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
-    Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
-    Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
-    Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
+    Route::get('/brand/edit/{id}', [BrandController::class, 'Edit'])->name('brand.edit');
+    Route::post('/brand/update/{id}', [BrandController::class, 'Update'])->name('brand.update');
+    Route::get('/brand/delete/{id}', [BrandController::class, 'Delete'])->name('brand.delete');
     // END Brand controller //
     
     // Home Contact ALL routes //
@@ -158,9 +158,9 @@ Route::prefix('/home')->group(function(){
     Route::get('/contact/all', [ContactController::class, 'HomeContact'])->name('home.contact');
     Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
     Route::post('/store/contact', [ContactController::class, 'StoreContact'])->name('store.contact');
-    Route::get('/contact/edit/{id}', [ContactController::class, 'Edit']);
-    Route::post('/contact/update/{id}', [ContactController::class, 'Update']);
-    Route::get('/contact/delete/{id}', [ContactController::class, 'Delete']);
+    Route::get('/contact/edit/{id}', [ContactController::class, 'Edit'])->name('contact.edit');
+    Route::post('/contact/update/{id}', [ContactController::class, 'Update'])->name('contact.update');
+    Route::get('/contact/delete/{id}', [ContactController::class, 'Delete'])->name('contact.delete');
     // END Home Contact ALL routes //
 
 });
@@ -175,9 +175,9 @@ Route::prefix('/contactmessages')->group(function(){
     Route::get('/message/all', [MessageController::class, 'ContactMessage'])->name('contact.message');
     Route::get('/add/message', [MessageController::class, 'AddMessage'])->name('add.message');
     Route::post('/store/message', [MessageController::class, 'StoreMessage'])->name('store.message');
-    Route::get('/message/edit/{id}', [MessageController::class, 'Edit']);
-    Route::post('/message/update/{id}', [MessageController::class, 'Update']);
-    Route::get('/message/delete/{id}', [MessageController::class, 'Delete']);
+    Route::get('/message/edit/{id}', [MessageController::class, 'Edit'])->name('message.edit');
+    Route::post('/message/update/{id}', [MessageController::class, 'Update'])->name('message.update');
+    Route::get('/message/delete/{id}', [MessageController::class, 'Delete'])->name('message.delete');
 
 });
 // END Contact Message ALL routes //

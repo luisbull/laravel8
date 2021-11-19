@@ -48,8 +48,8 @@
                           <td>{{ $message->subject }}</td>
                           <td>{{ $message->message }}</td>
                           <td>
-                            <!-- <a href="{{ url('message/edit/'.$message->id) }}" class="btn btn-info">Edit</a> -->
-                            <a href="{{ url('message/delete/'.$message->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                            <!-- <a href="{{ route('message.edit', $message->id) }}" class="btn btn-info">Edit</a> -->
+                            <a href="{{ route('message.delete', $message->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach

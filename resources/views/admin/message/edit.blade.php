@@ -23,7 +23,7 @@
 
                   <div class="card-header">Edit Message</div>
                   <div class="card-body">
-                    <form action="{{ url('message/update/'.$contactMessage->id) }}" method="POST">
+                    <form action="{{ route('message.update', $contactMessage->id) }}" method="POST">
                       @csrf
                       
                       <div class="mb-3">

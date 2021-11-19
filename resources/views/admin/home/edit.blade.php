@@ -23,7 +23,7 @@
 
                   <div class="card-header">Edit About</div>
                   <div class="card-body">
-                    <form action="{{ url('about/update/'.$homeAbout->id) }}" method="POST">
+                    <form action="{{ route('about.update', $homeAbout->id) }}" method="POST">
                       @csrf
                       <div class="mb-3">
                         <label for="aboutTitle" class="form-label">Update Title</label>

@@ -46,8 +46,8 @@
                           <td>{{ $about->short_description }}</td>
                           <td>{{ $about->long_description }}</td>
                           <td>
-                            <a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('about.edit', $about->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('about.delete', $about->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach

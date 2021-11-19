@@ -8,7 +8,7 @@ $route = Route::current()->getName();
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="{{ route('home.slider') }}">
+              <a href="{{ route('dashboard') }}">
                 <svg
                   class="brand-icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,13 +34,14 @@ $route = Route::current()->getName();
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
                   
-                  <li  class="has-sub {{ ($prefix == '/home') ? 'active' : '' }} expand" >
+                  <li  class="has-sub {{ ($prefix == '/home') ? 'active' : '' }} {{ ($prefix == '/home') ? 'expand' : '' }}" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">Home</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse show"  id="dashboard"
+
+                    <ul  class="collapse {{ ($prefix == '/home') ? 'show' : '' }}"  id="dashboard"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">  
                             <li  class="active" >
@@ -97,13 +98,13 @@ $route = Route::current()->getName();
 
 
 
-                  <li  class="has-sub {{ ($prefix == '/contactmessages') ? 'active' : '' }}" >
+                  <li  class="has-sub {{ ($prefix == '/contactmessages') ? 'active' : '' }} {{ ($prefix == '/contactmessages') ? 'expand' : '' }}">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
                       <span class="nav-text">Contact</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse"  id="ui-elements"
+                    <ul  class="collapse {{ ($prefix == '/contactmessages') ? 'show' : '' }}"  id="ui-elements"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
 

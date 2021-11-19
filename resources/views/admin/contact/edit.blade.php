@@ -23,7 +23,7 @@
 
                   <div class="card-header">Edit Contact</div>
                   <div class="card-body">
-                    <form action="{{ url('contact/update/'.$homeContact->id) }}" method="POST">
+                    <form action="{{ route('contact.update', $homeContact->id) }}" method="POST">
                       @csrf
                       <div class="mb-3">
                         <label for="contactAddress" class="form-label">Update Address</label>

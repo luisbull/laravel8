@@ -23,7 +23,7 @@
 
                   <div class="card-header">Edit Slider</div>
                   <div class="card-body">
-                    <form action="{{ url('slider/update/'.$sliders->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('slider.update', $sliders->id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" name="old_image" value="{{ $sliders->image }}">
                       <div class="mb-3">

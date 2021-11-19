@@ -46,8 +46,8 @@
                           <td>{{ $slider->description }}</td>
                           <td> <img src="{{ asset('storage/'.$slider->image) }}" style="height:40px; width:70px;" alt="" srcset=""> </td>
                           <td>
-                            <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('slider.edit', $slider->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('slider.delete', $slider->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach

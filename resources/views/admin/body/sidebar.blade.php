@@ -44,43 +44,43 @@ $route = Route::current()->getName();
                     <ul  class="collapse {{ ($prefix == '/home') ? 'show' : '' }}"  id="dashboard"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">  
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'home.slider') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('home.slider') }}">
                                 <span class="nav-text">Home Slider</span>                                
                               </a>
                             </li>
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'home.about') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('home.about') }}">
                                 <span class="nav-text">Home About</span>                                
                               </a>
                             </li>
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'home.service') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('home.service') }}">
                                 <span class="nav-text">Home Service</span>                                
                               </a>
                             </li>
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'all.multiImage') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('all.multiImage') }}">
                                 <span class="nav-text">Home Portfolio</span>                                
                               </a>
                             </li>
-                            <!-- <li  class="active" >
+                            <!-- <li  class="{{ ($route == '/home') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="index.html">
                                 <span class="nav-text">Home Portfolio(progress)</span>                                
                               </a>
                             </li> -->
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'all.brand') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('all.brand') }}">
                                 <span class="nav-text">Home Brand</span>                                
                               </a>
                             </li>
-                            <li  class="active" >
+                            <li  class="{{ ($route == 'home.contact') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="{{ route('home.contact') }}">
                                 <span class="nav-text">Home Contact</span>                                
                               </a>
                             </li>
 
-                            <!-- <li  class="active" >
+                            <!-- <li  class="{{ ($route == '/home') ? 'active font-weight-bold' : '' }}" >
                               <a class="sidenav-item-link" href="index.html">
                                 <span class="nav-text">Ecommerce</span>                                
                               </a>
@@ -108,7 +108,7 @@ $route = Route::current()->getName();
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
 
-                        <li  class="active" >
+                        <li  class="{{ ($route == 'contact.message') ? 'active font-weight-bold' : '' }}" >
                           <a class="sidenav-item-link" href="{{ route('contact.message') }}">
                             <span class="nav-text">Contact Messages</span>                                
                           </a>

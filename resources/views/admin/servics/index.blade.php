@@ -46,8 +46,8 @@
                           <td>{{ $service->service_name }}</td>
                           <td>{{ $service->service_description }}</td>
                           <td>
-                            <a href="{{ url('service/edit/'.$service->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ url('service/delete/'.$service->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('service.edit', $service->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('service.delete', $service->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach

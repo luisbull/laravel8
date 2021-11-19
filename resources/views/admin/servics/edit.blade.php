@@ -15,7 +15,7 @@
           <h2>Edit Service</h2>
         </div>
         <div class="card-body">
-          <form action="{{ url('service/update/'.$homeService->id) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('service.update', $homeService->id) }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="serviceIcon">Service Icon</label>

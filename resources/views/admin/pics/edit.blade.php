@@ -55,7 +55,10 @@
                           @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Update project</button>
+                        <div class="d-flex justify-content-between">
+                          <button type="submit" class="btn btn-primary">Update project</button>
+                          <a href="{{ route('all.multiImage') }}" class="btn btn-secondary btn-default">Cancel</a>
+                        </div>
                     </form>
                     
                   </div>

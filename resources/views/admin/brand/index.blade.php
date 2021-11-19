@@ -48,8 +48,8 @@
                             @endif
                           </td> <!-- using Query Builder -->
                           <td>
-                            <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ url('brand/delete/'.$brand->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('brand.edit', $brand->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('brand.delete', $brand->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         @endforeach

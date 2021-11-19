@@ -23,7 +23,7 @@
 
                   <div class="card-header">Edit Brand</div>
                   <div class="card-body">
-                    <form action="{{ url('brand/update/'.$brands->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('brand.update', $brands->id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" name="old_image" value="{{ $brands->brand_image }}">
                       <div class="mb-3">
@@ -44,7 +44,10 @@
                         <img src="{{ asset('storage/'.$brands->brand_image) }}" alt="" srcset="">
                         
                       </div>
-                      <button type="submit" class="btn btn-primary">Update Brand</button>
+                      <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Update Brand</button>
+                        <a href="{{ route('all.brand') }}" class="btn btn-secondary btn-default">Cancel</a>
+                      </div>
                     </form>
                   </div>
                   

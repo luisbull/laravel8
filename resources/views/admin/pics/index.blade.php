@@ -43,7 +43,7 @@
                           <td><img src="{{ asset('storage/'.$single_image->image) }}" class="col-md-8" alt=""></td>
                           <td>
                             <a href="{{ route('portfolio.edit', $single_image->id) }}" class="btn btn-info col-md-12">Edit</a><br><br>
-                            <a href="{{ url('portfolio/delete/'.$single_image->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger col-md-12">Delete</a>
+                            <a href="{{ route('portfolio.delete', $single_image->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger col-md-12">Delete</a>
                           </td>
                         </tr>
                         @endforeach

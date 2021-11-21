@@ -71,7 +71,6 @@ class PortfolioController extends Controller
     //////////
     // EDIT //
     //////////
-
     public function Edit($id){
         $portfolio = Portfolio::find($id);
         $categories_array = array("app","card","web");
@@ -142,6 +141,19 @@ class PortfolioController extends Controller
 
             return redirect()->back()->with('success', 'Category Updated Successfully');
         }
+    }
+
+    ////////////
+    // DELETE //
+    ////////////
+    public function Delete($id){
+        $portfolio_entry = Portfolio::find($id);
+        $old_image = public_path('storage/'.$portfolio_entry->image);
+
+        File::delete($old_image);
+        Portfolio::find($id)->delete();
+
+        return redirect()->back()->with('success', 'Project Deleted Successfully' );
     }
 
 

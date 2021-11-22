@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactUsMailable;
 use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -55,6 +57,10 @@ class MessageController extends Controller
             'message' => $request->message,
             'created_at' => Carbon::now()
         ]);
+
+        $email = new ContactUsMailable($request->all());
+        // dd($email);
+        Mail::to('prueba@prueba.com')->send($email);
 
         return redirect()->back()->with('success', 'Message Sent Successfully');
 

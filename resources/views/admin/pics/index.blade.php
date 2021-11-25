@@ -98,6 +98,51 @@
                   
 
                 </div>
+
+                <br><br>
+                <div class="card">
+
+
+                  @if(session('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('success')}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  @endif
+
+                  <div class="card-header">Categories</div>
+                  <div class="ml-auto">
+                    <button type="submit" class="btn btn-success">New</button>
+                  </div>
+                  <table class="table">
+                      <thead>
+                          <tr>
+                          <th scope="col" width="15%">#</th>
+                          <th scope="col" width="15%">Name</th>
+                          <th scope="col" width="15%">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        @php($i = 1) <!--If using pagination this won't work perfectly -->
+                        @foreach($categories_array as $category)
+                        <tr>
+                          <th>{{ $i++ }}</th><!-- If using pagination this won't work perfectly - It would start from 1 again when changing page -->
+                          <!--<th>2xcurly brackets $messageMessage->firstItem()+$loop->index 2xcurly brackets</th>  Prevent pagination to start again from 1 when click next page -->
+                          <td>{{ $category }}</td>
+                          <td>
+                            <a href="{{ route('portfolio.edit', $single_image->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('portfolio.edit', $single_image->id) }}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                  </table>
+                  <!--  $contactMessage->links() double brackets -->
+                  
+
+                </div>
+
+
               </div>
 
                 

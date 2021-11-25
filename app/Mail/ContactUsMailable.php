@@ -11,7 +11,7 @@ class ContactUsMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Contact information';
+    public $subject = 'Laravel 8 - Contact information';
     
     public $email;
 

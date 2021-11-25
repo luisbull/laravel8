@@ -7,7 +7,7 @@
   <title>Contact Us</title>
 </head>
 <body>
-  <h1>Contact us</h1>
+  <h1>Laravel 8 - Contact information</h1>
   <p>{{$email['name']}}</p>
   <p>{{$email['email']}}</p>
   <p>{{$email['subject']}}</p>

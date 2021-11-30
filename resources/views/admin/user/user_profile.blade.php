@@ -40,7 +40,7 @@
                 @enderror
               </div>
               <div class="form-group">
-                <label for="profileImage">Profile Email</label>
+                <label for="profileImage">Profile Image</label>
                 <input type="file" name="profile_image" class="form-control" id="profileImage"  value="{{ asset('storage/'.$userProfile->profile_photo_path) }}">
                 @error('profile_image')
                 <span class="text-danger">{{ $message }}</span>

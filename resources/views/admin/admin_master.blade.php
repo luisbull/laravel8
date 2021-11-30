@@ -10,7 +10,7 @@
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
-
+  
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ asset('backend/assets/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
@@ -26,7 +26,7 @@
   
 
   <!-- FAVICON -->
-  <link href="assets/img/favicon.png" rel="shortcut icon" />
+  <link href="{{ asset('favicon.png') }}" rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries

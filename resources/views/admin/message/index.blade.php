@@ -1,5 +1,11 @@
 @extends('admin.admin_master')
 @section('admin')
+
+@section('css')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+@endsection
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -26,7 +32,7 @@
                   @endif
 
                   <div class="card-header">Message Data</div>
-                  <table class="table">
+                  <table class="table" id="table_id">
                       <thead>
                           <tr>
                           <th scope="col" width="5%">#</th>
@@ -66,3 +72,15 @@
 
 </x-app-layout>
 @endsection
+@section('js')
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+@endsection
+@section('js')
+  $(document).ready( function () {
+      $('#table_id').DataTable();
+  } );
+@endsection
+
+

@@ -21,6 +21,11 @@
                 <button class="btn btn-info">Add Message</button>  
               </a> <br><br> -->
               
+              <div>
+                <label for="search">Search</label>
+                <input type="text" name="search" id="">
+              </div>
+
               <div class="col-md-12">
                 <div class="card">
 

@@ -17,16 +17,13 @@
         <div class="container">
             <div class="row">
 
-              <!-- <a href="{{ route('add.message')}}" class="text-right" rel="noopener noreferrer">
+              {{-- <a href="{{ route('add.message')}}" class="text-right" rel="noopener noreferrer">
                 <button class="btn btn-info">Add Message</button>  
-              </a> <br><br> -->
+              </a> <br><br>  --}}
               
-              <div>
-                <label for="search">Search</label>
-                <input type="text" name="search" id="">
-              </div>
-
+              
               <div class="col-md-12">
+                <x-jet-input class="flex-1 mb-4 w-full" type="text" wire:model="search" placeholder="Search" />
                 <div class="card">
 
                   @if(session('success'))

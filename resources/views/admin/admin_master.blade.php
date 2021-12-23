@@ -22,7 +22,11 @@
 
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}" />
+  
+  <!-- FONTAWESOME CSS -->
+  <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free-5.15.4-web/css/all.min.css') }}">
 
+  @livewireStyles
   
 
   <!-- FAVICON -->
@@ -226,6 +230,8 @@
 <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
 <script src="{{ asset('backend/assets/js/map.js') }}"></script>
 <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+
+@livewireScripts
 
 
 

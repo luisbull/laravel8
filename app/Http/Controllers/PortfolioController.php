@@ -22,7 +22,7 @@ class PortfolioController extends Controller
     public function AllImages(){
         $allImages = Portfolio::all();
         $categories_array = array("app","card","web");
-        return view('admin.pics.index', compact('allImages', 'categories_array'));
+        return view('admin.portfolio.index', compact('allImages', 'categories_array'));
     }
 
     ////////////
@@ -75,7 +75,7 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::find($id);
         $categories_array = array("app","card","web");
         $categories_array = array_diff($categories_array, array($portfolio->category));
-        return view('admin.pics.edit', compact('portfolio', 'categories_array'));
+        return view('admin.portfolio.edit', compact('portfolio', 'categories_array'));
     }
 
 

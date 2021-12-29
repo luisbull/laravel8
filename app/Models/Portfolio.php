@@ -11,7 +11,12 @@ class Portfolio extends Model
     
     protected $fillable = [
         'image',
-        'category',
+        'cat_id',
+        'cat_name',
         'title',
     ];
+
+    // public function category(){
+    //     return $this->belongsTo('App/Models/PorfolioCategory');
+    // }
 }

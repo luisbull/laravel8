@@ -42,10 +42,13 @@ Route::get('/', function () {
     $brands = DB::table('brands')->get(); // get all DB so can be @foreach in respective blade, this case home.blade.php
     $homeAbout = DB::table('home_abouts')->first(); // we use first to get just first entry from DB
     $services = DB::table('services')->get();
+
     $allImages = DB::table('portfolios')->get();
+    $categories = DB::table('portfolio_categories')->get();
+
     $homeContact = DB::table('contacts')->first();
     // $projects = DB::table('projects')->get();
-    return view('home', compact('brands','homeAbout','services','allImages','homeContact'));
+    return view('home', compact('brands', 'homeAbout', 'services', 'allImages', 'categories', 'homeContact'));
 });
 
 Route::get('/home', function () {
@@ -54,9 +57,9 @@ Route::get('/home', function () {
 });
 
 
-Route::get('/about', function (){
+Route::get('/about', function () {
     return view('about');
-// })->middleware('age');
+    // })->middleware('age');
 });
 
 
@@ -103,17 +106,17 @@ Route::post('/profile/update', [UserProfileController::class, 'ProfileUpdate'])-
 // END User PROFILE and PASSWORD change//
 
 
-Route::prefix('/home')->group(function(){
+Route::prefix('/home')->group(function () {
 
     // Home Slider ALL routes //
     Route::get('/slider', [SliderController::class, 'HomeSlider'])->name('home.slider');
     Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
-    Route::post('/store/slider',[SliderController::class, 'StoreSlider'])->name('store.slider');
+    Route::post('/store/slider', [SliderController::class, 'StoreSlider'])->name('store.slider');
     Route::get('/slider/edit/{id}', [SliderController::class, 'Edit'])->name('slider.edit');
     Route::post('/slider/update/{id}', [SliderController::class, 'Update'])->name('slider.update');
     Route::get('/slider/delete/{id}', [SliderController::class, 'Delete'])->name('slider.delete');
     // END Home Slider ALL routes //
-    
+
     // Home About ALL routes //
     Route::get('/about', [AboutController::class, 'HomeAbout'])->name('home.about');
     Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
@@ -122,21 +125,21 @@ Route::prefix('/home')->group(function(){
     Route::post('/about/update/{id}', [AboutController::class, 'Update'])->name('about.update');
     Route::get('/about/delete/{id}', [AboutController::class, 'Delete'])->name('about.delete');
     // END Home About ALL routes //
-    
+
     // Home Services ALL routes //
     Route::get('/service', [ServiceController::class, 'HomeService'])->name('home.service');
-    Route::get('/add/service', [ServiceController::class,'AddService'])->name('add.service');
+    Route::get('/add/service', [ServiceController::class, 'AddService'])->name('add.service');
     Route::post('/store/service', [ServiceController::class, 'StoreService'])->name('store.service');
     Route::get('/service/edit/{id}', [ServiceController::class, 'Edit'])->name('service.edit');
     Route::post('/service/update/{id}', [ServiceController::class, 'Update'])->name('service.update');
     Route::get('/service/delete/{id}', [ServiceController::class, 'Delete'])->name('service.delete');
     // END Home Services ALL routes //
-    
+
     // Home Projects (PORTFOLIO) ALL routes //
     // Route::get('home/pojects', [, ''])->name('home.projects');
     // END Home Projects (PORTFOLIO) ALL routes //
-    
-    
+
+
     // Potfolio ALL routes //
     Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
     Route::get('/portfolio/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage');
@@ -144,8 +147,15 @@ Route::prefix('/home')->group(function(){
     Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'Edit'])->name('portfolio.edit');
     Route::post('/portfolio/update/{id}', [PortfolioController::class, 'Update'])->name('portfolio.update');
     Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'Delete'])->name('portfolio.delete');
+
+    Route::get('/portfolio/addCategory', [PortfolioController::class, 'AddCategory'])->name('portfolio.addCategory');
+    Route::post('/portfolio/storeCategory', [PortfolioController::class, 'StoreCategory'])->name('portfolio.storeCategory');
+    Route::get('/portfolio/editCategory/{id}', [PortfolioController::class, 'EditCategory'])->name('portfolio.editCategory');
+    Route::post('/portfolio/updateCategory/{id}', [PortfolioController::class, 'UpdateCategory'])->name('portfolio.updateCategory');
+    Route::get('/portfolio/deleteCategory/{id}', [PortfolioController::class, 'DeleteCategory'])->name('portfolio.deleteCategory');
+
     // END Potfolio ALL routes //
-    
+
     // Brand controller //
     Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
     Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
@@ -153,7 +163,7 @@ Route::prefix('/home')->group(function(){
     Route::post('/brand/update/{id}', [BrandController::class, 'Update'])->name('brand.update');
     Route::get('/brand/delete/{id}', [BrandController::class, 'Delete'])->name('brand.delete');
     // END Brand controller //
-    
+
     // Home Contact ALL routes //
     Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
     Route::get('/contact/all', [ContactController::class, 'HomeContact'])->name('home.contact');
@@ -170,7 +180,7 @@ Route::prefix('/home')->group(function(){
 
 
 // Contact Message ALL routes //
-Route::prefix('/contactmessages')->group(function(){
+Route::prefix('/contactmessages')->group(function () {
 
     Route::get('/message', [MessageController::class, 'Message'])->name('message');
     Route::get('/message/all', [MessageController::class, 'ContactMessage'])->name('contact.message');
@@ -179,10 +189,9 @@ Route::prefix('/contactmessages')->group(function(){
     Route::get('/message/edit/{id}', [MessageController::class, 'Edit'])->name('message.edit');
     Route::post('/message/update/{id}', [MessageController::class, 'Update'])->name('message.update');
     Route::get('/message/delete/{id}', [MessageController::class, 'Delete'])->name('message.delete');
-
 });
 // END Contact Message ALL routes //
 
-Route::get('/storage', function(){
- Artisan::call('storage:link');
+Route::get('/storage', function () {
+    Artisan::call('storage:link');
 });

@@ -20,8 +20,8 @@ class MessageController extends Controller
     // READ (load ALL) //
     /////////////////////
     public function ContactMessage(){
-        // $contactMessage = Message::all();
-        $contactMessage = Message::latest()->paginate(8);
+        $contactMessage = Message::all();
+        // $contactMessage = Message::latest()->paginate(8);
         // return view('layouts.pages.contact');
         return view('admin.message.index', compact('contactMessage'));
     }

@@ -1,8 +1,8 @@
 @extends('layouts.master_home')
 
-<!-- ======= Hero Section ======= -->
+<!-- ======= Hero SLIDER Section ======= -->
 @include('layouts.body.slider')
-<!-- End Hero -->
+<!-- ===== End Hero SLIDER Section ===== -->
 
 @section('home_content')
     <!-- ======= About Us Section ======= -->

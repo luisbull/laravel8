@@ -180,17 +180,20 @@ Route::prefix('/home')->group(function () {
 
 
 // Contact Message ALL routes //
-Route::prefix('/contactmessages')->group(function () {
-
-    Route::get('/message', [MessageController::class, 'Message'])->name('message');
-    Route::get('/message/all', [MessageController::class, 'ContactMessage'])->name('contact.message');
-    Route::get('/add/message', [MessageController::class, 'AddMessage'])->name('add.message');
-    Route::post('/store/message', [MessageController::class, 'StoreMessage'])->name('store.message');
-    Route::get('/message/edit/{id}', [MessageController::class, 'Edit'])->name('message.edit');
-    Route::post('/message/update/{id}', [MessageController::class, 'Update'])->name('message.update');
-    Route::get('/message/delete/{id}', [MessageController::class, 'Delete'])->name('message.delete');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    
+    Route::prefix('/contactmessages')->group(function () {
+    
+        Route::get('/message', [MessageController::class, 'Message'])->name('message');
+        Route::get('/message/all', [MessageController::class, 'ContactMessage'])->name('contact.message');
+        Route::get('/add/message', [MessageController::class, 'AddMessage'])->name('add.message');
+        Route::post('/store/message', [MessageController::class, 'StoreMessage'])->name('store.message');
+        Route::get('/message/edit/{id}', [MessageController::class, 'Edit'])->name('message.edit');
+        Route::post('/message/update/{id}', [MessageController::class, 'Update'])->name('message.update');
+        Route::get('/message/delete/{id}', [MessageController::class, 'Delete'])->name('message.delete');
+    });
+    // END Contact Message ALL routes //
 });
-// END Contact Message ALL routes //
 
 Route::get('/storage', function () {
     Artisan::call('storage:link');

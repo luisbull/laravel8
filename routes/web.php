@@ -142,7 +142,7 @@ Route::prefix('/home')->group(function () {
 
     // Potfolio ALL routes //
     Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
-    Route::get('/portfolio/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage');
+    Route::get('/portfolio/all', [PortfolioController::class, 'AllImages'])->name('all.multiImage')->middleware('auth');
     Route::post('/portfolio/store', [PortfolioController::class, 'StoreImages'])->name('store.images');
     Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'Edit'])->name('portfolio.edit');
     Route::post('/portfolio/update/{id}', [PortfolioController::class, 'Update'])->name('portfolio.update');

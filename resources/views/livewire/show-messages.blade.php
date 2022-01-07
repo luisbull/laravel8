@@ -1,5 +1,70 @@
 <div wire:init="loadMessages">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {{-- <div class="container"> --}}
+    <div class="container">
+
+        <x-table>
+
+            <div class="py-4 flex item-center">
+                <div class="flex item-centre">
+                    <span>Show</span>
+                    <select class="mx-2 form-control" wire:model="number">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <x-jet-input class="flex-1 mr-4" type="text" wire:model="search" placeholder="Search" />
+
+                {{-- <!-- @livewire('create-post') --> --}}
+            </div>
+
+            @if (count($contactMessage))
+
+
+                <table
+                    class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                    <thead class="text-white">
+                        @foreach ($contactMessage as $message)
+                            <tr class="bg-blue-300 flex flex-col flex-no-wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                <th class="p-2 text-left border">Name</th>
+                                <th class="p-2 text-left border">Email</th>
+                                <th class="p-2 text-left border">Message</th>
+                                <th class="p-2 text-left border">Actions</th>
+                            </tr>
+                        @endforeach
+                    </thead>
+                    <tbody class="flex-1 sm:flex-none">
+                        @foreach ($contactMessage as $message)
+                            <tr class="flex flex-col flex-no-wrap sm:table-row mb-2 sm:mb-0 overflow-hidden">
+                                <td class="border-grey-light border hover:bg-gray-100 p-2">{{ $message->name }}</td>
+                                <td class="border-grey-light border hover:bg-gray-100 p-2">{{ $message->email }}</td>
+                                <td class="border-grey-light border hover:bg-gray-100 p-2 bg-red-100">{{ $message->message }}</td>
+                                <td class="border-grey-light border hover:bg-gray-100 p-2 text-center text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+                                    <a href="{{ route('message.delete', $message->id) }}"
+                                        onclick="return confirm('Are you sure you want to delete?')"
+                                        class="text-red-500">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                @if ($contactMessage->hasPages())
+                    <div class="px-6 py-3 bg-gray-50">{{ $contactMessage->links() }}</div>
+                @endif
+                {{-- {{ $contactMessage->links() }} --}}
+
+
+            @else
+                <div class="px-6 py-4" cursor-pointer>No entries</div>
+            @endif
+
+
+        </x-table>
+
 
         <x-table>
 
@@ -27,7 +92,8 @@
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ session('success') }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
                     </div>
                 @endif
 
@@ -161,3 +227,29 @@
 
     </div>
 </div>
+
+<style>
+    /* html,
+    body {
+      height: 100%;
+    } */
+
+    @media (min-width: 640px) {
+        table {
+            display: inline-table !important;
+        }
+
+        thead tr:not(:first-child) {
+            display: none;
+        }
+    }
+
+    td:not(:last-child) {
+        border-bottom: 0;
+    }
+
+    th:not(:last-child) {
+        border-bottom: 2px solid rgba(0, 0, 0, .1);
+    }
+
+</style>

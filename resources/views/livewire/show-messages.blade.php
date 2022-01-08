@@ -21,25 +21,25 @@
 
             @if (count($contactMessage))
 
-
+                {{-- @foreach ($contactMessage as $message) --}}
                 <table
-                    class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                    class="hidden w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-2">
                     <thead class="text-white">
-                        @foreach ($contactMessage as $message)
-                            <tr class="bg-blue-300 flex flex-col flex-no-wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-                                <th class="p-2 text-left border">Name</th>
-                                <th class="p-2 text-left border">Email</th>
-                                <th class="p-2 text-left border">Message</th>
-                                <th class="p-2 text-left border">Actions</th>
-                            </tr>
-                        @endforeach
+                        {{-- @foreach ($contactMessage as $message) --}}
+                        <tr class="hidden bg-blue-300 flex flex-col flex-no-wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                            <th class="p-2 text-left border">Name</th>
+                            <th class="p-2 text-left border">Email</th>
+                            <th class="p-2 text-left border">Message</th>
+                            <th class="p-2 text-left border">Actions</th>
+                        </tr>
+                        {{-- @endforeach --}}
                     </thead>
                     <tbody class="flex-1 sm:flex-none">
                         @foreach ($contactMessage as $message)
-                            <tr class="flex flex-col flex-no-wrap sm:table-row mb-2 sm:mb-0 overflow-hidden">
+                            <tr class="hidden flex flex-col flex-no-wrap sm:table-row mb-2 sm:mb-0 overflow-hidden">
                                 <td class="border-grey-light border hover:bg-gray-100 p-2">{{ $message->name }}</td>
                                 <td class="border-grey-light border hover:bg-gray-100 p-2">{{ $message->email }}</td>
-                                <td class="border-grey-light border hover:bg-gray-100 p-2 bg-red-100">{{ $message->message }}</td>
+                                <td class="border-grey-light border hover:bg-gray-100 p-2">{{ $message->message }}</td>
                                 <td class="border-grey-light border hover:bg-gray-100 p-2 text-center text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
                                     <a href="{{ route('message.delete', $message->id) }}"
                                         onclick="return confirm('Are you sure you want to delete?')"
@@ -51,6 +51,46 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{-- @endforeach --}}
+
+
+                {{-- MOBILE --}}
+                @foreach ($contactMessage as $message)
+                <table
+                    class="sm:hidden table-mobile w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-2">
+                    
+                    <tbody class="flex-1 sm:flex-none">
+                        {{-- @foreach ($contactMessage as $message) --}}
+                            
+                            <tr class="sm:hidden">
+                                <td class="w-25 border-grey-light border hover:bg-gray-100 p-2 bg-blue-300">name</td>
+                                <td class="w-75 border-grey-light border hover:bg-gray-100 p-2 bg-red-100">
+                                    {{ $message->name }}</td>
+                            </tr>
+                            <tr class="sm:hidden">
+                                <td class="w-25 border-grey-light border hover:bg-gray-100 p-2 bg-blue-300">email</td>
+                                <td class="w-75 border-grey-light border hover:bg-gray-100 p-2 bg-red-100">
+                                    {{ $message->email }}</td>
+                            </tr>
+                            <tr class="sm:hidden">
+                                <td class="w-25 border-grey-light border hover:bg-gray-100 p-2 bg-blue-300">Message</td>
+                                <td class="w-75 border-grey-light border hover:bg-gray-100 p-2 bg-red-100">
+                                    {{ $message->message }}</td>
+                            </tr>
+                            <tr class="sm:hidden">
+                                <td class="w-25 border-grey-light border hover:bg-gray-100 p-2 bg-blue-300">Action</td>
+                                <td class="w-75 border-grey-light border hover:bg-gray-100 p-2 bg-red-100 text-center">
+                                    <a href="{{ route('message.delete', $message->id) }}"
+                                        onclick="return confirm('Are you sure you want to delete?')"
+                                        class="text-red-500">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {{-- @endforeach --}}
+                    </tbody>
+                </table>
+                @endforeach
 
                 @if ($contactMessage->hasPages())
                     <div class="px-6 py-3 bg-gray-50">{{ $contactMessage->links() }}</div>
@@ -244,9 +284,9 @@
         }
     }
 
-    td:not(:last-child) {
+    /* td:not(:last-child) {
         border-bottom: 0;
-    }
+    } */
 
     th:not(:last-child) {
         border-bottom: 2px solid rgba(0, 0, 0, .1);

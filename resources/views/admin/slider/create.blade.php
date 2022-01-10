@@ -31,8 +31,14 @@
                 @enderror
               </div>
               <div class="form-footer pt-4 pt-5 mt-4 border-top">
-                <button type="submit" class="btn btn-primary btn-default">Submit</button>
-                <a href="{{ route('home.slider') }}" class="btn btn-secondary btn-default">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-default">
+                  Submit
+                  <i class="fas fa-upload"></i>
+                </button>
+                <a href="{{ route('home.slider') }}" class="btn btn-secondary btn-default">
+                  Cancel
+                  <i class="fas fa-undo"></i>
+                </a>
               </div>
           </form>
         </div>

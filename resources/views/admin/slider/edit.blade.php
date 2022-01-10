@@ -27,21 +27,21 @@
                       @csrf
                       <input type="hidden" name="old_image" value="{{ $sliders->image }}">
                       <div class="mb-3">
-                        <label for="sliderTitle" class="form-label">Update Slider Name</label>
+                        <label for="sliderTitle" class="form-label">Slider Name</label>
                         <input type="text" name="slider_title" class="form-control" id="sliderTitle" aria-describedby="SliderTitle" value="{{ $sliders->title }}">
                         @error('slider_title')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>
                       <div class="mb-3">
-                        <label for="sliderDescription" class="form-label">Update Slider Name</label>
+                        <label for="sliderDescription" class="form-label">Slider Description</label>
                         <input type="text" name="slider_description" class="form-control" id="sliderDescription" aria-describedby="SliderDescription" value="{{ $sliders->description }}">
                         @error('slider_description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>
                       <div class="mb-3">
-                        <label for="sliderImage" class="form-label">Update Slider Image</label>
+                        <label for="sliderImage" class="form-label">Slider Image</label>
                         <input type="file" name="slider_image" class="form-control" id="sliderImage" aria-describedby="SliderImage" value="{{ $sliders->image }}">
                         @error('slider_image')
                         <span class="text-danger">{{ $message }}</span>
@@ -51,9 +51,16 @@
                         <img src="{{ asset('storage/'.$sliders->image) }}" alt="" srcset="">
                         
                       </div>
-                      <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary">Update Slider</button>
-                        <a href="{{ route('home.slider') }}" class="btn btn-secondary btn-default">Cancel</a>
+                      <div class="d-flex justify-content-evenly">
+                        <button type="submit" class="btn btn-primary">
+                          Update
+                          <i class="fas fa-upload"></i>
+                        </button>
+                        <a href="{{ route('home.slider') }}" class="btn btn-secondary">
+                          Cancel
+                          {{-- <i class="fas fa-window-close"></i> --}}
+                          <i class="fas fa-undo"></i>
+                        </a>
                       </div>
                     </form>
                   </div>

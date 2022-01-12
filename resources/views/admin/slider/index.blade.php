@@ -86,9 +86,9 @@
                 <!-- Sort Options -->
                 <div class="hidden sm:grid sm:grid-cols-12  sm:my-0 sm:bg-gray-100 sm:py-3 sm:border">
                     <div class="sm:col-span-1 md:col-span-1 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">#</div>
-                    <div class="sm:col-span-2 md:col-span-2 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">name</div>
-                    <div class="sm:col-span-4 md:col-span-3 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">email</div>
-                    <div class="sm:col-span-4 md:col-span-4 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">message</div>
+                    <div class="sm:col-span-2 md:col-span-2 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">title</div>
+                    <div class="sm:col-span-4 md:col-span-3 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">description</div>
+                    <div class="sm:col-span-4 md:col-span-4 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer">image</div>
                     <div class="sm:col-span-1 md:col-span-2 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer sm:text-center">action</div>
                 </div>
                 <!-- End Sort Options -->
@@ -104,7 +104,7 @@
                                 <div class="rounded-tr-lg col-span-6 sm:col-span-8 p-1 bg-white">{{ $i++ }}</div>
                             </div>
                             <div class="grid grid-cols-8 sm:col-span-2 md:col-span-2">
-                                <div class="col-span-2 sm:hidden bg-blue-400 p-1">Title</div>
+                                <div class="col-span-2 sm:hidden bg-blue-400 p-1">title</div>
                                 <div class="col-span-6 sm:col-span-8 p-1 bg-white break-words">{{ $slider->title }}</div>
                             </div>
                             <div class="grid grid-cols-8 sm:col-span-3 md:col-span-3">
@@ -126,7 +126,7 @@
                                       <i  class="fas fa-edit "></i>
                                     </a>
 
-                                    <a href="{{ route('message.delete', $slider->id) }}"
+                                    <a href="{{ route('slider.delete', $slider->id) }}"
                                       onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
                                         {{-- Delete --}}
                                         <i  class="fas fa-trash-alt"></i>

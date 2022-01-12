@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
               
-              <div class="col-md-6">
+              <div class="col-sm-10 col-md-8">
                 <div class="card">
 
                   <div class="card-header">Edit Slider</div>

@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 
-    <div class="col-lg-12">
+    <div class="col-lg-10">
       <div class="card card-default">
         <div class="card-header card-header-border-bottom">
           <h2>Create About</h2>
@@ -30,9 +30,15 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
-              <div class="form-footer pt-4 pt-5 mt-4 border-top">
-                <button type="submit" class="btn btn-primary btn-default">Submit</button>
-                <a href="{{ route('home.about') }}" class="btn btn-secondary btn-default">Cancel</a>
+              <div class="form-footer pt-4  mt-4 border-top">
+                <button type="submit" class="btn btn-primary btn-default">
+                  Submit
+                  <i class="fas fa-upload"></i>
+                </button>
+                <a href="{{ route('home.about') }}" class="btn btn-secondary btn-default">
+                  Cancel
+                  <i class="fas fa-undo"></i>
+                </a>
               </div>
           </form>
         </div>
